@@ -20,3 +20,6 @@ def getRoomById(request, room_id):
 def getRoomsOffer(request):
     rooms = Room.objects.all()
     return render(request, 'hotelMiranda/offers.html',{"rooms": rooms})
+
+def getRoomsAvailable(request):
+    pass

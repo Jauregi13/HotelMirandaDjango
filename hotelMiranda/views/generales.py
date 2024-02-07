@@ -6,3 +6,6 @@ def renderHome(request):
 
 def renderAbout(request):
     return render(request, "hotelMiranda/about.html")
+
+def renderContact(request):
+    return render(request, "hotelMiranda/contact.html")
