@@ -2,6 +2,7 @@ from django.urls import path
 from .views import rooms,generales
 
 urlpatterns = [
+    path('', generales.redirectHome, name="redirectHome"),
     path("home/",  generales.renderHome, name="home"),
     path("about/", generales.renderAbout, name="about"),
     path("rooms/", rooms.getRooms, name="rooms"),
