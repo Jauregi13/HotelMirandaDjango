@@ -18,27 +18,17 @@
         height: 10em;
 
         
-        
-        &__icon {
+        &__icon, &__icon2 {
 
             margin: 0 auto;
             background-size: 50px 50px;
             width: 50px;
             height: 50px;
             margin-bottom: 0.5em;
+        }
 
-            &--breakfast {
-                background-image: url('./../../img/breakfastIcon.png');
-            }
-            &--airport {
-                background-image: url('./../../img/airportIcon-yellow.png');
-            }
-            &--city {
-                background-image: url('./../../img/cityIcon.svg');
-            }
-            &--room {
-                background-image: url('./../../img/roomIcon.svg');
-            }
+        &__icon2 {
+            display: none;
         }
 
         &__text {
@@ -54,20 +44,12 @@
 
         }
 
-        &:hover &__icon--breakfast {
-            background-image: url('./../../img/breakfastIcon-white.png');
+        &:hover &__icon {
+            display: none;
         }
 
-        &:hover &__icon--airport {
-            background-image: url('./../../img/airportIcon.svg');
-        }
-
-        &:hover &__icon--city {
-            background-image: url('./../../img/cityIcon-white.svg');
-        }
-
-        &:hover &__icon--room {
-            background-image: url('./../../img/roomIcon-white.svg');
+        &:hover &__icon2 {
+            display: block;
         }
 
         &:hover &__text {
@@ -84,7 +66,7 @@
 
             width: 25%;
 
-            &__icon {
+            &__icon, &__icon2 {
 
                 width: 67px;
                 height: 67px;

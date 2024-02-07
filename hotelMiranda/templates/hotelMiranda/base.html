@@ -11,7 +11,7 @@
         <script defer src="{% static 'hotelMiranda/js/sliders.js' %}"></script>
         <script defer src="{% static 'hotelMiranda/js/menu.js' %}"></script>
         <script defer src="{% static 'hotelMiranda/js/pagination.js' %}"></script>
-        <title>{% block title %}{% endblock %}</title>
+        <title>{{ title }}</title>
     </head>
     <body>
 
@@ -28,7 +28,7 @@
                 </a>
                 <nav class="header__content__nav" id="menu">
                     <ul>
-                        <li><a href="{% url 'about' %}">About Us</a></li>
+                        <li><a href="{% url 'aboutUs' %}">About Us</a></li>
                         <li><a href="{% url 'rooms' %}">Rooms</a></li>
                         <li><a href="{% url 'offers' %}">Offers</a></li>
                         <li><a href="{% url 'contact' %}">Contact</a></li>
@@ -48,6 +48,19 @@
         
         </header>
 
+         {% if title != 'Home' %}
+
+         <section class="page-title">
+
+            <p class="page-title__text">THE ULTIMATE LUXURY</p>
+            <h1 class="page-title__title title-page">{{ title_page }}</h1>
+            <div class="page-title__breadcrumb-content">
+                <p class="page-title__breadcrumb-content__text">Home<span>|</span><span class="page-title__breadcrumb-content__text__page-name">{{ breadcrumb }}</span></p>
+            </div>
+            
+        </section>
+
+        {% endif %}
 
         {% block content %}
 

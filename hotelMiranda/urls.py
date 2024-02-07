@@ -4,7 +4,7 @@ from .views import rooms,generales
 urlpatterns = [
     path('', generales.redirectHome, name="redirectHome"),
     path("home/",  generales.renderHome, name="home"),
-    path("about/", generales.renderAbout, name="about"),
+    path("aboutUs/", generales.renderAbout, name="aboutUs"),
     path("rooms/", rooms.getRooms, name="rooms"),
     path("rooms/", rooms.getRoomsAvailable, name="roomsAvailable"),
     path("rooms/<int:room_id>/",rooms.getRoomById, name="room"),

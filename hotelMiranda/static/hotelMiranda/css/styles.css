@@ -1349,24 +1349,15 @@
   padding: 1em;
   height: 10em;
 }
-.about-content__icons-content__icon-block__icon {
+.about-content__icons-content__icon-block__icon, .about-content__icons-content__icon-block__icon2 {
   margin: 0 auto;
   background-size: 50px 50px;
   width: 50px;
   height: 50px;
   margin-bottom: 0.5em;
 }
-.about-content__icons-content__icon-block__icon--breakfast {
-  background-image: url("./../../img/breakfastIcon.png");
-}
-.about-content__icons-content__icon-block__icon--airport {
-  background-image: url("./../../img/airportIcon-yellow.png");
-}
-.about-content__icons-content__icon-block__icon--city {
-  background-image: url("./../../img/cityIcon.svg");
-}
-.about-content__icons-content__icon-block__icon--room {
-  background-image: url("./../../img/roomIcon.svg");
+.about-content__icons-content__icon-block__icon2 {
+  display: none;
 }
 .about-content__icons-content__icon-block__text {
   color: #222222;
@@ -1378,17 +1369,11 @@
 .about-content__icons-content__icon-block:hover {
   background-color: #BEAD8E;
 }
-.about-content__icons-content__icon-block:hover .about-content__icons-content__icon-block__icon--breakfast {
-  background-image: url("./../../img/breakfastIcon-white.png");
+.about-content__icons-content__icon-block:hover .about-content__icons-content__icon-block__icon {
+  display: none;
 }
-.about-content__icons-content__icon-block:hover .about-content__icons-content__icon-block__icon--airport {
-  background-image: url("./../../img/airportIcon.svg");
-}
-.about-content__icons-content__icon-block:hover .about-content__icons-content__icon-block__icon--city {
-  background-image: url("./../../img/cityIcon-white.svg");
-}
-.about-content__icons-content__icon-block:hover .about-content__icons-content__icon-block__icon--room {
-  background-image: url("./../../img/roomIcon-white.svg");
+.about-content__icons-content__icon-block:hover .about-content__icons-content__icon-block__icon2 {
+  display: block;
 }
 .about-content__icons-content__icon-block:hover .about-content__icons-content__icon-block__text {
   color: #FFFFFF;
@@ -1402,7 +1387,7 @@
   .about-content__icons-content__icon-block {
     width: 25%;
   }
-  .about-content__icons-content__icon-block__icon {
+  .about-content__icons-content__icon-block__icon, .about-content__icons-content__icon-block__icon2 {
     width: 67px;
     height: 67px;
     background-size: 67px 67px;
