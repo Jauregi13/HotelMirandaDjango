@@ -1,0 +1,144 @@
+
+.offers-content__rooms {
+
+    
+    &__room {
+
+        width: 90%;
+        margin: 0 auto;
+        padding-bottom: 2em;
+        margin-bottom: 2em;
+        box-shadow: 0px 14px 24px 0 rgba($color: #B8B8B8, $alpha: 0.1);
+    
+        &__image {
+            width: 100%;
+            height: auto;
+            filter: brightness(0.5);
+        }
+
+        &__content {
+            padding-left: 1em;
+            padding-top: 1em;
+
+            &__title-price {
+
+                position: relative;
+
+                &__titles {
+
+                    &__title {
+                        margin-bottom: 1em;
+                    }
+            
+                    &__subtitle {
+                        margin-bottom: 0.5em;
+                    }
+                }
+
+                &__prices {
+                    text-align: end;
+                    position: absolute;
+                    right: 1em;
+                    bottom: 7em;
+                    
+                    &__price {
+                        margin-bottom: 0.5em;
+                        text-decoration: line-through;
+                    }
+                }
+
+                
+            }
+
+            &__info {
+
+                &__text {
+                    margin-bottom: 2em;
+                }
+
+                &__list-icons {
+                    list-style: none;
+                    columns: 2;
+                    margin-bottom: 1em;
+        
+                    &__icon{
+                        margin-bottom: 1em;
+                        display: flex;
+        
+                        
+                        &__image {
+                            margin-right: 0.7em;
+                        }
+        
+                    }
+                }
+
+            }
+    
+    
+        }
+    }
+}
+
+@media only screen and (min-width:1000px) {
+
+    .offers-content__rooms__room {
+
+        width: 70%;
+        margin: 0;
+        margin: 0 auto;
+        padding: 0;
+        box-shadow: none;
+
+        &__image {
+            filter: brightness(1);
+        }
+
+        &__content {
+
+            position: relative;
+            bottom: 6em;
+            width: 90%;
+            margin: 0 auto;
+            padding: 3em;
+            background-color: #FFFFFF;
+            border-top: 6px solid #BDAC8D;
+
+            &__title-price {
+
+                display: flex;
+                border-bottom: 2px solid #ECECEC;
+                margin-bottom: 2em;
+
+                &__prices {
+                    position: unset;
+                    transform: none;
+                    flex-grow: 1;
+                }
+            }
+
+            &__info {
+
+                display: flex;
+
+                &__text {
+
+                    width: 55%;
+                    margin: 0;
+                    margin-right: 4em;
+                }
+
+                &__list-icons {
+                    width: 50%;
+                    padding-top: 1em;
+                    margin: 0;
+                }
+    
+            }
+
+            
+        }
+
+        
+    }
+}

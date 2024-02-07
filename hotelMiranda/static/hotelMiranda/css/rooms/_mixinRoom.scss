@@ -1,0 +1,89 @@
+
+
+@mixin roomStyle(){
+
+    &__room {
+
+        width: 100%;
+        text-align: center;
+        margin-bottom: 3em;
+
+        &--smaller-size {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        @media only screen and (min-width:1000px) and (max-width:1450px){
+
+            &--smaller-size {
+                width: 70%;
+            }
+        }
+
+        &__image {
+            width: 100%;
+            height: auto;
+        }
+
+        &__info {
+
+            &__icons {
+            
+                background-color: #FFFFFF;
+                box-shadow: 0 8px 16px rgba($color: #8A8A8A0D, $alpha: 0.05);
+                width: 90%;
+                max-width: 20em;
+                margin: 0 auto;
+                padding-bottom: 1em;
+                padding-top: 1em;
+                padding-left: 1em;
+                position: relative;
+                bottom: 2em;
+                z-index: 2;
+        
+                & i {
+                    margin-right: 1.2em; 
+                }
+            }
+    
+            &__title {
+                margin-bottom: 0.5em;
+            }
+    
+            &__text {
+                width: 90%;
+                margin: 0 auto;
+                margin-bottom: 1em;
+            }
+        }
+
+        &__booking {
+
+            &__price {
+                display: inline-block;
+                margin-right: 2em;
+            }
+
+            &__line {
+                display: none;
+            }
+    
+            &__book {
+                display: inline-block;
+                text-decoration: none;
+                color: #BDBDBD;
+                font-size: 1rem;
+                font-weight: 700;
+                line-height: 1rem;
+    
+                &:hover {
+                    color: #222222;
+                }
+            }
+        }
+
+        
+
+        
+    }
+}

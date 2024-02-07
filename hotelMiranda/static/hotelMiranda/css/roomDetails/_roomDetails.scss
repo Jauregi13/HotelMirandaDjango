@@ -1,0 +1,22 @@
+
+@use './hotelImage';
+@use './formAvailability';
+@use './textInfo';
+@use './amenities';
+@use './founder';
+@use './cancellation';
+@use './relatedRooms';
+
+.room-details-content {
+
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 2em;
+
+    @media only screen and (min-width: 1000px) {
+
+        width: 70%;
+        position: relative;
+        
+    }
+}

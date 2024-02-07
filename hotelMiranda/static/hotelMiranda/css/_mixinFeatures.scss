@@ -1,0 +1,104 @@
+
+
+@mixin featuresStyle(){
+
+
+    &__title {
+        margin-bottom: 2em;
+    }
+
+    &__subtitle {
+        margin-bottom: 0.5em;
+    }
+
+    &__cards {
+
+        display: none;
+        width: 70%;
+        margin: 0 auto;
+
+        @media only screen and (min-width:1000px){
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2em;
+        }
+
+        @include featuresCardStyle();
+    }
+
+    .slider-type2 {
+        width: 90%;
+
+        @media only screen and (min-width:1000px){
+            display: none;
+        }
+
+        .swiper-slide {
+
+            @include featuresCardStyle();
+        }
+        
+    }
+
+}
+
+
+@mixin featuresCardStyle(){
+
+    &__card {
+
+        padding-left: 2em;
+        padding-bottom: 4em;
+        text-align: left;
+
+        &--black {
+            background-color: #292929;
+        }
+
+        &__icons {
+
+            display: flex;
+            height: 9em;
+            margin-bottom: 2em;
+            padding-right: 1em;
+
+            &__icon {
+
+                width: 23%;
+                display: flex;
+                height: inherit;
+                align-items: flex-end;
+
+                &__image {
+
+                    width: 70px;
+                    height: 70px;
+                }
+            }
+
+            &__number {
+                width: 77%;
+                display: flex;
+                justify-content: flex-end;
+                font-weight: 700;
+                font-size: 7.5rem;
+                line-height: 8.125rem;
+                color: #222222;
+                opacity: 0.04;
+
+                &--opacity {
+                    opacity: 1;
+                }
+                
+            }
+        }
+
+        &__title {
+            margin-bottom: 1em;
+        }
+    
+        &__text {
+            width: 75%;
+        }
+    }
+}

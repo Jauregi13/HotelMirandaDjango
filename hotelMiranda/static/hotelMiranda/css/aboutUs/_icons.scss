@@ -1,0 +1,95 @@
+
+.about-content__icons-content {
+
+    display: grid;
+    width: 90%;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    margin-bottom: 4em;
+
+    &__icon-block {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1em;
+        height: 10em;
+
+        
+        
+        &__icon {
+
+            margin: 0 auto;
+            background-size: 50px 50px;
+            width: 50px;
+            height: 50px;
+            margin-bottom: 0.5em;
+
+            &--breakfast {
+                background-image: url('./../../img/breakfastIcon.png');
+            }
+            &--airport {
+                background-image: url('./../../img/airportIcon-yellow.png');
+            }
+            &--city {
+                background-image: url('./../../img/cityIcon.svg');
+            }
+            &--room {
+                background-image: url('./../../img/roomIcon.svg');
+            }
+        }
+
+        &__text {
+            color: #222222;
+            font-weight: 700;
+            font-size: 0.75rem;
+            line-height: 0.875rem;
+            letter-spacing: 0.15rem;
+        }
+
+        &:hover {
+            background-color: #BEAD8E;
+
+        }
+
+        &:hover &__icon--breakfast {
+            background-image: url('./../../img/breakfastIcon-white.png');
+        }
+
+        &:hover &__icon--airport {
+            background-image: url('./../../img/airportIcon.svg');
+        }
+
+        &:hover &__icon--city {
+            background-image: url('./../../img/cityIcon-white.svg');
+        }
+
+        &:hover &__icon--room {
+            background-image: url('./../../img/roomIcon-white.svg');
+        }
+
+        &:hover &__text {
+            color: #FFFFFF;
+        }
+    }
+
+    @media only screen and (min-width:1000px) {
+        width: 70%;
+        display: flex;
+        gap: 2em;
+
+        &__icon-block {
+
+            width: 25%;
+
+            &__icon {
+
+                width: 67px;
+                height: 67px;
+                background-size: 67px 67px;
+            }
+        }
+    }
+}

@@ -1,2 +1,503 @@
 
-<h1>HOME</h1>
+{% extends 'hotelMiranda/base.html' %}
+
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %} 
+
+<div class="home-content">
+
+    <section class="home-content__banner-home">
+
+        <div class="home-content__banner-home__content">
+
+            <p class="home-content__banner-home__content__text paragraph paragraph--title-banner">THE ULTIMATE LUXURY EXPERIENCE</p>
+            <h1 class="home-content__banner-home__content__title title-page">The Perfect Base For You</h1>
+
+            <div class="home-content__banner-home__content__buttons">
+
+                <button class="home-content__banner-home__content__buttons__tour button">TAKE A TOUR</button>
+                <button class="home-content__banner-home__content__buttons__learn button button--dark">LEARN MORE</button>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="home-content__booking-calendar">
+
+        <form class="home-content__booking-calendar__form">
+
+            <div class="home-content__booking-calendar__form__input-group">
+                <label for="arrival">Arrival Date</label>
+                <input type="date" name="arrival">
+            </div>
+            
+            <div class="home-content__booking-calendar__form__input-group">
+                <label for="departure">Departure Date</label>
+                <input type="date" name="departure">
+            </div>
+            
+
+            <input type="submit" value="CHECK AVAILABILITY" class="button button--bigger" name="check"/>
+
+
+        </form>
+    </section>
+
+    <section class="home-content__about-us">
+        <div class="home-content__about-us__info">
+            <h2 class="home-content__about-us__info__title title-section">ABOUT US</h2>
+            <h3 class="home-content__about-us__info__subtitle subtitle-section">Discover Our Underground.</h3>
+            <p class="home-content__about-us__info__text paragraph paragraph--gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <button class="home-content__about-us__info__button button">BOOK NOW</button>
+        </div>
+        
+        <div class="home-content__about-us__extra-info">
+
+            <div class="home-content__about-us__extra-info__team">
+                <div class="home-content__about-us__extra-info__team__image">
+                    <img src="{% static 'hotelMiranda/img/home1.jpg' %}" alt="Team" />
+                </div>
+                
+                <div class="home-content__about-us__extra-info__team__content">
+                    <div class="home-content__about-us__extra-info__team__content__icons">
+                        <img src="{% static 'hotelMiranda/img/teamIcon1.svg' %}" alt="teamIcon1" />
+                        <img src="{% static 'hotelMiranda/img/teamIcon2.svg' %}" alt="teamIcon2" class="home-content__about-us__extra-info__team__content__icons__icon2"/>
+                    </div>
+                    <h4 class="home-content__about-us__extra-info__team__content__title title-content">Strong Team</h4>
+                    <p class="home-content__about-us__extra-info__team__content__text paragraph paragraph--black">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                </div>
+                
+            </div>
+
+            <div class="home-content__about-us__extra-info__luxury">
+
+                <div class="home-content__about-us__extra-info__luxury__image">
+                    <img src="{% static 'hotelMiranda/img/home2.jpg' %}" alt="Luxury Room" />
+                </div>
+                <div class="home-content__about-us__extra-info__luxury__content">
+                    <img src="{% static 'hotelMiranda/img/luxuryRoomIcon.svg' %}" alt="luxury Room" class="home-content__about-us__extra-info__luxury__content__icon">
+                    <h4 class="home-content__about-us__extra-info__luxury__content__title title-content title-content--white">Luxury Room</h4>
+                    <p class="home-content__about-us__extra-info__luxury__content__text paragraph paragraph--white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                </div>
+                
+            </div>
+
+        </div>
+        
+    </section>
+
+    <section class="home-content__rooms">
+        <h2 class="home-content__rooms__title title-section">ROOMS</h2>
+        <h3 class="home-content__rooms__subtitle subtitle-section">Hand Picked Rooms</h3>
+        <div class="home-content__rooms__icons">
+            <i class="fa-solid fa-bed"></i>
+            <i class="fa-solid fa-wifi"></i>
+            <i class="fa-solid fa-car"></i>
+            <i class="fa-regular fa-snowflake"></i>
+            <i class="fa-solid fa-dumbbell"></i>
+            <i class="fa-solid fa-ban-smoking"></i>
+            <i class="fa-solid fa-martini-glass-citrus"></i>
+        </div>
+        <div class="swiper slider-type1">
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide ">
+                    <img class="swiper-slide__image swiper-slide__image--bigger" src="{% static 'hotelMiranda/img/slide1.jpg' %}" alt="hotel room">
+                </div>
+                <div class="swiper-slide">
+                    <img class="swiper-slide__image swiper-slide__image--bigger" src="{% static 'hotelMiranda/img/slide2.jpg' %}" alt="hotel room">
+                </div>
+                <div class="swiper-slide">
+                    <img class="swiper-slide__image swiper-slide__image--bigger" src="{% static 'hotelMiranda/img/slide3.jpg' %}" alt="hotel room">
+                </div>
+                <div class="swiper-slide">
+                    <img class="swiper-slide__image swiper-slide__image--bigger" src="{% static 'hotelMiranda/img/slide3.jpg' %}" alt="hotel room">
+                </div>
+            </div>
+
+            <div class="swiper-button-prev swiper-button-prev--move-left">
+                <i class="fa-solid fa-angle-left"></i>
+            </div>
+            <div class="swiper-button-next swiper-button-next--move-right">
+                <i class="fa-solid fa-angle-right"></i>
+            </div>
+
+        </div>
+
+        <div class="home-content__rooms__room-info">
+            <div class="home-content__rooms__room-info__text">
+                <h4 class="home-content__rooms__room-info__text__title title-content">Minimal Duplex Room</h4>
+                <p class="home-content__rooms__room-info__text__paragraph paragraph paragraph--gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+            </div>
+            <p class="home-content__rooms__room-info__price paragraph paragraph--price">$345<span>/Night</span></p>
+        </div>
+    </section>
+
+    <section class="home-content__video">
+
+        <div class="home-content__video__info">
+            <div class="home-content__video__info__text">
+                <h2 class="home-content__video__info__text__title title-section title-section--yellow">INTRO VIDEO</h2>
+                <h3 class="home-content__video__info__text__subtitle subtitle-section subtitle-section--white">Meet With Our Luxury Place.</h3>
+                <p class="home-content__video__info__text_paragraph paragraph paragraph--gray2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat you have to understand this.</p>
+            </div>
+            <iframe src="https://www.youtube.com/embed/Bu3Doe45lcU?start=25" class="home-content__video__info__video-player" width="95%" frameborder="0"></iframe>
+        </div>
+        <div class="home-content__video__button">
+            <button class="button">BOOK NOW</button>
+        </div>
+        
+    </section>
+
+    <section class="home-content__facilities">
+
+        <h2 class="home-content__facilities__title title-section">FACILITIES</h2>
+        <h3 class="home-content__facilities__subtitle subtitle-section">Core Features</h3>
+        <div class="swiper slider-type2">
+
+            <div class="swiper-wrapper swiper-wrapper--size-change">
+
+                <div class="swiper-slide">
+                    <div class="swiper-slide__card">
+                        <div class="swiper-slide__card__icons">
+                            <div class="swiper-slide__card__icons__icon">
+                                <img src="{% static 'hotelMiranda/img/iconFeature1.svg' %}" alt="iconFeature1">
+                            </div>
+                            <span class="swiper-slide__card__icons__number">01</span>
+                        </div>
+                        <h4 class="swiper-slide__card__title title-content">Have High Rating</h4>
+                        <p class="swiper-slide__card__text paragraph paragraph--gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+                    </div>
+                    
+                </div>
+                <div class="swiper-slide">
+                    <div class="swiper-slide__icons">
+                        <div class="swiper-slide__icons__icon">
+                            <img src="{% static 'hotelMiranda/img/iconFeature2.svg' %}" alt="iconFeature2">
+                        </div>
+                        <span class="swiper-slide__icons__number">02</span>
+                    </div>
+                    <h4 class="swiper-slide__title title-content">Quiet Hours</h4>
+                    <p class="swiper-slide__text paragraph paragraph--gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+                </div>
+                <div class="swiper-slide">
+                    <div class="swiper-slide__icons">
+                        <div class="swiper-slide__icons__icon">
+                            <img src="{% static 'hotelMiranda/img/iconFeature3.svg' %}" alt="iconFeature3">
+                        </div>
+                        <span class="swiper-slide__icons__number">03</span>
+                    </div>
+                    <h4 class="swiper-slide__title title-content">Best Locations</h4>
+                    <p class="swiper-slide__text paragraph paragraph--gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+                </div>
+                <div class="swiper-slide">
+                    <div class="swiper-slide__card">
+                        <div class="swiper-slide__card__icons">
+                            <div class="swiper-slide__card__icons__icon">
+                                <img src="{% static 'hotelMiranda/img/iconFeature4.svg' %}" alt="iconFeature4">
+                            </div>
+                            <span class="swiper-slide__card__icons__number">04</span>
+                        </div>
+                        <h4 class="swiper-slide__card__title title-content">Free Cancellation</h4>
+                        <p class="swiper-slide__card__text paragraph paragraph--gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+                    </div>
+                    
+                </div>
+                <div class="swiper-slide">
+                    <div class="swiper-slide__icons">
+                        <div class="swiper-slide__icons__icon">
+                            <img src="{% static 'hotelMiranda/img/iconFeature5.svg' %}" alt="iconFeature5">
+                        </div>
+                        <span class="swiper-slide__icons__number">05</span>
+                    </div>
+                    <h4 class="swiper-slide__title title-content">Payment Options</h4>
+                    <p class="swiper-slide__text paragraph paragraph--gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+                </div>
+                <div class="swiper-slide">
+                    <div class="swiper-slide__icons">
+                        <div class="swiper-slide__icons__icon">
+                            <img src="{% static 'hotelMiranda/img/iconFeature6.svg' %}" alt="iconFeature6">
+                        </div>
+                        <span class="swiper-slide__icons__number">06</span>
+                    </div>
+                    <h4 class="swiper-slide__title title-content">Special Offers</h4>
+                    <p class="swiper-slide__text paragraph paragraph--gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+                </div>
+                
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="home-content__facilities__cards">
+
+            <div class="home-content__facilities__cards__card">
+                <div class="home-content__facilities__cards__card__icons">
+                    <div class="home-content__facilities__cards__card__icons__icon">
+                        <img src="{% static 'hotelMiranda/img/iconFeature1.svg' %}" alt="iconFeature1" class="home-content__facilities__cards__icons__icon__image">
+                    </div>
+                    <span class="home-content__facilities__cards__card__icons__number">01</span>
+                </div>
+                <h4 class="home-content__facilities__cards__card__title title-content">Have High Rating</h4>
+                <p class="home-content__facilities__cards__card__text paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+            </div>
+
+            <div class="home-content__facilities__cards__card">
+                <div class="home-content__facilities__cards__card__icons">
+                    <div class="home-content__facilities__cards__card__icons__icon">
+                        <img src="{% static 'hotelMiranda/img/iconFeature2.svg' %}" alt="iconFeature2" class="home-content__facilities__cards__card__icons__icon__image">
+                    </div>
+                    <span class="home-content__facilities__cards__card__icons__number">02</span>
+                </div>
+                <h4 class="home-content__facilities__cards__card__title title-content">Quiet Hours</h4>
+                <p class="home-content__facilities__cards__card__text paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+            </div>
+
+            <div class="home-content__facilities__cards__card">
+                <div class="home-content__facilities__cards__card__icons">
+                    <div class="home-content__facilities__cards__card__icons__icon">
+                        <img src="{% static 'hotelMiranda/img/iconFeature3.svg' %}" alt="iconFeature3" class="home-content__facilities__cards__card__icons__icon__image">
+                    </div>
+                    <span class="home-content__facilities__cards__card__icons__number">03</span>
+                </div>
+                <h4 class="home-content__facilities__cards__card__title title-content">Best Locations</h4>
+                <p class="home-content__facilities__cards__card__text paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+            </div>
+
+            <div class="home-content__facilities__cards__card">
+                <div class="home-content__facilities__cards__card__icons">
+                    <div class="home-content__facilities__cards__card__icons__icon">
+                        <img src="{% static 'hotelMiranda/img/iconFeature4.svg' %}" alt="iconFeature4" class="home-content__facilities__cards__card__icons__icon__image">
+                    </div>
+                    <span class="home-content__facilities__cards__card__icons__number">04</span>
+                </div>
+                <h4 class="home-content__facilities__cards__card__title title-content">Free Cancellation</h4>
+                <p class="home-content__facilities__cards__card__text paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+            </div>
+
+            <div class="home-content__facilities__cards__card">
+                <div class="home-content__facilities__cards__card__icons">
+                    <div class="home-content__facilities__cards__card__icons__icon">
+                        <img src="{% static 'hotelMiranda/img/iconFeature5.svg' %}" alt="iconFeature5" class="home-content__facilities__cards__card__icons__icon__image" />
+                    </div>
+                    <span class="home-content__facilities__cards__card__icons__number">05</span>
+                </div>
+                <h4 class="home-content__facilities__cards__card__title title-content">Payment Options</h4>
+                <p class="home-content__facilities__cards__card__text paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+            </div>
+
+            <div class="home-content__facilities__cards__card">
+                <div class="home-content__facilities__cards__card__icons">
+                    <div class="home-content__facilities__cards__card__icons__icon">
+                        <img src="{% static 'hotelMiranda/img/iconFeature6.svg' %}" alt="iconFeature6" class="home-content__facilities__cards__card__icons__icon__image">
+                    </div>
+                    <span class="home-content__facilities__cards__card__icons__number">06</span>
+                </div>
+                <h4 class="home-content__facilities__cards__card__title title-content">Special Offers</h4>
+                <p class="home-content__facilities__cards__card__text paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="home-content__menu">
+        <div class="home-content__menu__icon">
+            <img src="{% static 'hotelMiranda/img/donutIconMobile.svg' %}" alt="Donut icon" class="home-content__menu__icon__image-mobile">
+            <img src="{% static 'hotelMiranda/img/donutIconDesktop.svg' %}" alt="Donut Icon" class="home-content__menu__icon__image-desktop">
+        </div>
+        
+
+        <div class="home-content__menu__info">
+            <h2 class="home-content__menu__info__title title-section">MENU</h2>
+            <h3 class="home-content__menu__info__subtitle subtitle-section">Our Foods Menu</h3>
+            <div class="home-content__menu__info__list">
+                <div class="home-content__menu__info__list__item">
+                    <img src="{% static 'hotelMiranda/img/eggBacon.jpg' %}" alt="Egg Bacon" class="home-content__menu__info__list__item__image">
+                    <div class="home-content__menu__info__list__item__text">
+                        <h4 class="home-content__menu__info__list__item__text__title subtitle-section subtitle-section--x-small">Eggs & Bacon</h4>
+                        <p class="home-content__menu__info__list__item__text__paragraph paragraph">Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod tempor.</p>
+                    </div>
+                    <img src="{% static 'hotelMiranda/img/arrowIcon.svg' %}" alt="Arrow Icon" class="home-content__menu__info__list__item__arrow">
+                </div>
+
+                <div class="home-content__menu__info__list__item">
+                    <img src="{% static 'hotelMiranda/img/teaCoffe.jpg' %}" alt="Tea Coffe" class="home-content__menu__info__list__item__image">
+                    <div class="home-content__menu__info__list__item__text">
+                        <h4 class="home-content__menu__info__list__item__text__title subtitle-section subtitle-section--x-small">Tea or Coffe</h4>
+                        <p class="home-content__menu__info__list__item__text__paragraph paragraph">Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod tempor.</p>
+                    </div>
+                    <img src="{% static 'hotelMiranda/img/arrowIcon.svg' %}" alt="Arrow Icon" class="home-content__menu__info__list__item__arrow">
+                </div>
+
+                <div class="home-content__menu__info__list__item">
+                    <img src="{% static 'hotelMiranda/img/chiaOatmeal.jpg' %}" alt="Chia Oatmeal" class="home-content__menu__info__list__item__image">
+                    <div class="home-content__menu__info__list__item__text">
+                        <h4 class="home-content__menu__info__list__item__text__title subtitle-section subtitle-section--x-small">Chia Oatmeal</h4>
+                        <p class="home-content__menu__info__list__item__text__paragraph paragraph">Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod tempor.</p>
+                    </div>
+                    <img src="{% static 'hotelMiranda/img/arrowIcon.svg' %}" alt="Arrow Icon" class="home-content__menu__info__list__item__arrow">
+                </div>
+
+                <div class="home-content__menu__info__list__item">
+                    <img src="{% static 'hotelMiranda/img/chiaOatmeal.jpg' %}" alt="Fruit Parfait" class="home-content__menu__info__list__item__image">
+                    <div class="home-content__menu__info__list__item__text">
+                        <h4 class="home-content__menu__info__list__item__text__title subtitle-section subtitle-section--x-small">Fruit Parfait</h4>
+                        <p class="home-content__menu__info__list__item__text__paragraph paragraph">Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod tempor.</p>
+                    </div>
+                    <img src="{% static 'hotelMiranda/img/arrowIcon.svg' %}" alt="Arrow Icon" class="home-content__menu__info__list__item__arrow">
+                </div>
+
+                <div class="home-content__menu__info__list__item">
+                    <img src="{% static 'hotelMiranda/img/chiaOatmeal.jpg' %}" alt="Marmalade Selection" class="home-content__menu__info__list__item__image">
+                    <div class="home-content__menu__info__list__item__text">
+                        <h4 class="home-content__menu__info__list__item__text__title subtitle-section subtitle-section--x-small">Marmalade Selection</h4>
+                        <p class="home-content__menu__info__list__item__text__paragraph paragraph">Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod tempor.</p>
+                    </div>
+                    <img src="{% static 'hotelMiranda/img/arrowIcon.svg' %}" alt="Arrow Icon" class="home-content__menu__info__list__item__arrow">
+                </div>
+
+                <div class="home-content__menu__info__list__item">
+                    <img src="{% static 'hotelMiranda/img/chiaOatmeal.jpg' %}" alt="Cheese Plate" class="home-content__menu__info__list__item__image">
+                    <div class="home-content__menu__info__list__item__text">
+                        <h4 class="home-content__menu__info__list__item__text__title subtitle-section subtitle-section--x-small">Cheese Plate</h4>
+                        <p class="home-content__menu__info__list__item__text__paragraph paragraph">Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod tempor.</p>
+                    </div>
+                    <img src="{% static 'hotelMiranda/img/arrowIcon.svg' %}" alt="Arrow Icon" class="home-content__menu__info__list__item__arrow">
+                </div>
+
+                <div class="home-content__menu__info__list__item">
+                    <img src="{% static 'hotelMiranda/img/chiaOatmeal.jpg' %}" alt="Cheese Plate" class="home-content__menu__info__list__item__image">
+                    <div class="home-content__menu__info__list__item__text">
+                        <h4 class="home-content__menu__info__list__item__text__title subtitle-section subtitle-section--x-small">Cheese Plate</h4>
+                        <p class="home-content__menu__info__list__item__text__paragraph paragraph">Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod tempor.</p>
+                    </div>
+                    <img src="{% static 'hotelMiranda/img/arrowIcon.svg' %}" alt="Arrow Icon" class="home-content__menu__info__list__item__arrow">
+                </div>
+
+                <div class="home-content__menu__info__list__item">
+                    <img src="{% static 'hotelMiranda/img/chiaOatmeal.jpg' %}" alt="Cheese Plate" class="home-content__menu__info__list__item__image">
+                    <div class="home-content__menu__info__list__item__text">
+                        <h4 class="home-content__menu__info__list__item__text__title subtitle-section subtitle-section--x-small">Cheese Plate</h4>
+                        <p class="home-content__menu__info__list__item__text__paragraph paragraph">Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod tempor.</p>
+                    </div>
+                    <img src="{% static 'hotelMiranda/img/arrowIcon.svg' %}" alt="Arrow Icon" class="home-content__menu__info__list__item__arrow">
+                </div>
+
+                <div class="home-content__menu__info__list__item">
+                    <img src="{% static 'hotelMiranda/img/chiaOatmeal.jpg' %}" alt="Cheese Plate" class="home-content__menu__info__list__item__image">
+                    <div class="home-content__menu__info__list__item__text">
+                        <h4 class="home-content__menu__info__list__item__text__title subtitle-section subtitle-section--x-small">Cheese Plate</h4>
+                        <p class="home-content__menu__info__list__item__text__paragraph paragraph">Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod tempor.</p>
+                    </div>
+                    <img src="{% static 'hotelMiranda/img/arrowIcon.svg' %}" alt="Arrow Icon" class="home-content__menu__info__list__item__arrow">
+                </div>
+
+                <div class="home-content__menu__info__list__item">
+                    <img src="{% static 'hotelMiranda/img/chiaOatmeal.jpg' %}" alt="Cheese Plate" class="home-content__menu__info__list__item__image">
+                    <div class="home-content__menu__info__list__item__text">
+                        <h4 class="home-content__menu__info__list__item__text__title subtitle-section subtitle-section--x-small">Cheese Plate</h4>
+                        <p class="home-content__menu__info__list__item__text__paragraph paragraph">Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod tempor.</p>
+                    </div>
+                    <img src="{% static 'hotelMiranda/img/arrowIcon.svg' %}" alt="Arrow Icon" class="home-content__menu__info__list__item__arrow">
+                </div>
+
+                <div class="home-content__menu__info__list__item">
+                    <img src="{% static 'hotelMiranda/img/chiaOatmeal.jpg' %}" alt="Cheese Plate" class="home-content__menu__info__list__item__image">
+                    <div class="home-content__menu__info__list__item__text">
+                        <h4 class="home-content__menu__info__list__item__text__title subtitle-section subtitle-section--x-small">Cheese Plate</h4>
+                        <p class="home-content__menu__info__list__item__text__paragraph paragraph">Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod tempor.</p>
+                    </div>
+                    <img src="{% static 'hotelMiranda/img/arrowIcon.svg' %}" alt="Arrow Icon" class="home-content__menu__info__list__item__arrow">
+                </div>
+
+                <div class="home-content__menu__info__list__item">
+                    <img src="{% static 'hotelMiranda/img/chiaOatmeal.jpg' %}" alt="Cheese Plate" class="home-content__menu__info__list__item__image">
+                    <div class="home-content__menu__info__list__item__text">
+                        <h4 class="home-content__menu__info__list__item__text__title subtitle-section subtitle-section--x-small">Cheese Plate</h4>
+                        <p class="home-content__menu__info__list__item__text__paragraph paragraph">Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod tempor.</p>
+                    </div>
+                    <img src="{% static 'hotelMiranda/img/arrowIcon.svg' %}" alt="Arrow Icon" class="home-content__menu__info__list__item__arrow">
+                </div>
+                
+            </div>
+
+            <div class="home-content__menu__info__pagination">
+                <div class="home-content__menu__info__pagination__buttons">
+                    <button disabled class="home-content__menu__info__pagination__buttons__button button button--pagination button--pagination--inactive"><</button>
+                    <button class="home-content__menu__info__pagination__buttons__button button button--pagination button--pagination--next">></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="home-content__menu__images">
+
+            <div class="swiper slider-type2 swiper slider-type2--smaller">
+                <div class="swiper-wrapper swiper-wrapper--size-change">
+
+                    <div class="swiper-slide">
+                        <img src="{% static 'hotelMiranda/img/eggBacon.jpg' %}" alt="Egg Bacon" class="swiper-slide__image">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{% static 'hotelMiranda/img/eggBacon.jpg' %}" alt="Tea Coffe" class="swiper-slide__image">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{% static 'hotelMiranda/img/chiaOatmeal.jpg' %}" alt="Cheese Plate" class="swiper-slide__image">
+                    </div>
+                </div>
+
+                <div class="swiper-pagination"></div>
+            </div>
+            
+            <img src="{% static 'hotelMiranda/img/eggBacon.jpg' %}" alt="Egg Bacon" class="home-content__menu__images__image">
+            <img src="{% static 'hotelMiranda/img/teaCoffe.jpg' %}" alt="Tea Coffe" class="home-content__menu__images__image">
+            <img src="{% static 'hotelMiranda/img/chiaOatmeal.jpg' %}" alt="Cheese Plate" class="home-content__menu__images__image">
+
+        </div>
+
+        
+        
+
+
+    </section>
+
+    <section class="home-content__data">
+
+        <div class="home-content__data__projects">
+            <img src="{% static 'hotelMiranda/img/projectIcon.svg' %}" alt="projectIcon">
+            <h3 class="home-content__data__projects__number">84k<span>+</span></h3>
+            <p class="home-content__data__projects__text paragraph paragraph--gray3">Projects are Completed</p>
+        </div>
+
+        <div class="home-content__data__backers">
+            <img src="{% static 'hotelMiranda/img/backersIcon.svg' %}" alt="backersIcon">
+            <h3 class="home-content__data__projects__number">10M<span>+</span></h3>
+            <p class="home-content__data__projects__text paragraph paragraph--gray3">Active Backers Around World</p>
+        </div>
+
+        <div class="home-content__data__categories">
+            <img src="{% static 'hotelMiranda/img/categoriesIcon.svg' %}" alt="categoriesIcon">
+            <h3 class="home-content__data__projects__number">02K<span>+</span></h3>
+            <p class="home-content__data__projects__text paragraph paragraph--gray3">Categories Served</p>
+        </div>
+
+        <div class="home-content__data__ideas">
+            <img src="{% static 'hotelMiranda/img/ideasIcon.svg' %}" alt="ideasIcon">
+            <h3 class="home-content__data__projects__number">100M<span>+</span></h3>
+            <p class="home-content__data__projects__text paragraph paragraph--gray3">Idea Raised Funds</p>
+        </div>
+
+
+    </section>
+</div>
+
+
+
+
+
+
+{% endblock %}

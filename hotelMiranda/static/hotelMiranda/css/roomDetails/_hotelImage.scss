@@ -1,0 +1,61 @@
+
+.room-details-content__hotel-image {
+
+    margin-bottom: 2em;
+
+    @media only screen and (min-width:1000px){
+        width: 70%;
+        margin-bottom: -2em;
+    }
+
+    &__text {
+
+        padding: 1em;
+
+        @media only screen and (min-width:1000px) {
+
+            display: flex;
+            align-items: center;
+            width: 95%;
+            background-color: #FFFFFF;
+            position: relative;
+            z-index: 1;
+        }
+
+        &__titles {
+
+            @media only screen and (min-width:1000px){
+                width: 75%;
+            }
+           
+
+            &__title {
+                margin-bottom: 1em;
+            }
+        
+            &__subtitle {
+                margin-bottom: 0.5em;
+            }
+        }
+
+        &__price {
+            margin-bottom: 0.5em;
+        }
+    
+        &__price span {
+            font-size: 0.813rem;
+        }
+
+        
+    }
+
+    &__image {
+        width: 100%;
+        height: auto;
+
+        @media only screen and (min-width: 1000px) {
+            transform: translateY(-5em);
+
+        }
+    }
+}

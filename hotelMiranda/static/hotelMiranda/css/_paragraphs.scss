@@ -1,0 +1,88 @@
+
+
+
+.paragraph {
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+
+    &--title-banner {
+        font-weight: 700;
+        color: #FFFFFF;
+        font-size: 0.7rem;
+        letter-spacing: 0.175rem;
+    }
+
+    &--price {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 2.625rem;
+        color: #BEAD8E;
+
+        &--offer {
+            color: #DE5777;
+        }
+
+        &--small {
+            font-size: 1rem;
+            line-height: 1rem;
+        }
+
+        &--medium {
+            font-size: 1.438rem;
+            line-height: 1.563rem;
+        }
+        &--big {
+            font-size: 2.5rem;
+            line-height: 2.7rem;
+        }
+
+        
+    }
+
+    &--about-counter {
+        font-family: 'Roboto';
+        font-size: 1rem;
+        line-height: 1rem;
+    }
+
+    &--second-typography {
+        font-family: 'Roboto';
+    }
+
+    &--gray {
+        color: #777777;
+    }
+
+    &--gray2 {
+        color:  #C2C2C2;
+    }
+
+    &--gray3 {
+        color: #999999;
+    }
+
+    &--black {
+        color: #111111;
+    }
+
+    &--black2 {
+        color: #222222;
+    }
+
+    &--white {
+        color: #FFFFFF;
+    }
+
+    &--bold {
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.13rem;
+    }
+
+    &--bigger {
+        font-weight: 500;
+        font-size: 1em;
+        line-height: 1em;
+    }
+}

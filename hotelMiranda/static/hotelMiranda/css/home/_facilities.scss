@@ -1,0 +1,10 @@
+
+@import './../mixinFeatures';
+
+.home-content__facilities {
+
+    text-align: center;
+    margin-bottom: 3em;
+
+    @include featuresStyle();
+}

@@ -1,0 +1,126 @@
+
+@mixin sliderType1 {
+
+    .swiper.slider-type1 {
+        width: 100%;
+        height: 16em;
+
+        @media only screen and (min-width: 1000px){
+            height: 20em;
+        }
+
+        &--height-auto {
+            height: auto;
+        }
+    
+        & .swiper-wrapper {
+    
+            & .swiper-slide {
+
+                &__room {
+
+                    &__image-navigation {
+                        position: relative;
+        
+        
+                        & .swiper-button-prev.swiper-button-prev--move-left {
+        
+                            left: var(--swiper-navigation-sides-offset,-8px);
+                             
+                        }
+        
+                        & .swiper-button-next.swiper-button-next--move-right {
+        
+                            right: var(--swiper-navigation-sides-offset,-8px);
+                             
+                        }
+                    }
+                }
+                
+            }
+        }
+
+        
+    
+        & .swiper-button-prev::after, & .swiper-button-next::after {
+            content: '';
+            display: none;
+        }
+    
+        & .swiper-button-prev.swiper-button-disabled {
+    
+            opacity: 1 !important;
+            background-color: #FFFFFF;
+    
+            & i {
+                color: #000000;
+            }
+        }
+    
+        & .swiper-button-next.swiper-button-disabled {
+    
+            opacity: 1 !important;
+            background-color: #FFFFFF;
+    
+            & i {
+                color: #000000;
+            }
+        }
+    
+    }
+    
+    .swiper-button-next i, .swiper-button-prev i {
+        color: #FFFFFF;
+    }
+    
+    .swiper-button-next, .swiper-button-prev{
+        background-color: #BDAC8D;
+    }
+
+    @media only screen and (min-width: 1000px){
+
+        .swiper-button-prev.swiper-button-prev--move-left {
+        
+            left: var(--swiper-navigation-sides-offset,10em);
+             
+        }
+    
+        .swiper-button-next.swiper-button-next--move-right {
+    
+            right: var(--swiper-navigation-sides-offset,10em);
+             
+        }
+    }
+
+    
+}
+
+
+@mixin sliderType2 {
+
+    .swiper-wrapper.swiper-wrapper--size-change {
+        
+        text-align: left;
+        margin-bottom: 2.5em;
+    }
+
+    .swiper-wrapper {
+        margin-bottom: 2em;
+    }
+    
+    .swiper-pagination-bullet.swiper-pagination-bullet-active {
+        background-color: #BEAD8E;
+    }
+    
+    .swiper-pagination-bullet {
+        background-color: #EDEDED;
+
+        &--black {
+            background-color: #333333;
+        }
+    }
+
+}
+
+
+

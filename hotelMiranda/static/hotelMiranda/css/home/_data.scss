@@ -1,0 +1,39 @@
+
+.home-content__data {
+    width: 100%;
+    background-color: #222222;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 3em;
+    margin-bottom: 2em;
+
+    @media only screen and (min-width:1000px){
+        width: 70%;
+        margin: 0 auto;
+        display: flex;
+    }
+
+    &__projects, &__backers, &__categories, &__ideas {
+
+        & img {
+            margin-bottom: 3em;
+        }
+        &__number{
+            font-family: 'Roboto';
+            color: #FFFFFF;
+            font-size: 3.75rem;
+            line-height: 1.56rem;
+            font-weight: 400;
+            & span {
+                font-size: 1.125rem;
+            }
+        }
+        &__text{
+            padding-bottom: 3em;
+        }
+
+        @media only screen and (min-width:1000px){
+            width: 25%;
+        }
+    }
+}

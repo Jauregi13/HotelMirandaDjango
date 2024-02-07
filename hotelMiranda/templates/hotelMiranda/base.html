@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'hotelMiranda/css/styles.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script defer src="{% static 'hotelMiranda/js/sliders.js' %}"></script>
+        <script defer src="{% static 'hotelMiranda/js/menu.js' %}"></script>
+        <script defer src="{% static 'hotelMiranda/js/pagination.js' %}"></script>
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+
+        <header class="header">
+            <p class="header__banner paragraph paragraph--white paragraph--second-typography">We Make Your Feel Comfortable</p>
+            <div class="header__content">
+                
+                <div class="header__content__hamburger-icon" id="menuIcon">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <a class="header__content__logo" href="{% url 'home' %}">
+                    <div class="header__content__logo__icon">H</div>
+                    <div class="header__content__logo__title"><b>HOTEL</b> MIRANDA</div>
+                </a>
+                <nav class="header__content__nav" id="menu">
+                    <ul>
+                        <li><a href="{% url 'about' %}">About Us</a></li>
+                        <li><a href="{% url 'rooms' %}">Rooms</a></li>
+                        <li><a href="{% url 'offers' %}">Offers</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header__content__icons">
+                    <div class="header__content__icons__icon">
+                        <img src="{% static 'hotelMiranda/img/accountIcon.svg' %}" alt="account"/>
+                    </div>
+                    <div class="header__content__icons__icon">
+                        <img src="{% static 'hotelMiranda/img/searchIcon.svg' %}" />
+                    </div>
+                </div>
+                
+        
+            </div>
+        
+        </header>
+
+
+        {% block content %}
+
+        {% endblock %}
+
+
+        <footer class="footer">
+
+            <div class="footer__content">
+
+                <div class="footer__content__info">
+
+                    <div class="footer__content__info__logo">
+
+                        <span class="footer__content__info__logo__icon">H</span>
+                        <p class="footer__content__info__logo__title"><b>HOTEL</b> MIRANDA</p>
+                        
+                    </div>
+
+                    <p class="footer__content__info__introduction paragraph paragraph--gray">Lorem ipsum dolor sit amet, consect etur adipisicing elit, sed doing eius mod tempor incididunt ut labore et dolore magna aliqua. 
+                        Ut enim ad minim veniam, quis nostrud exercitat ion ullamco laboris nisi.</p>
+                    <div class="footer__content__info__social-media">
+                        <i class="fa-brands fa-square-facebook"></i>
+                        <i class="fa-brands fa-square-twitter"></i>
+                        <i class="fa-brands fa-square-behance"></i>
+                        <i class="fa-brands fa-linkedin"></i>
+                        <i class="fa-brands fa-square-youtube"></i>
+                    </div>
+
+                </div>  
+
+                <div class="footer__content__services">
+
+                    <h3 class="footer__content__services__title subtitle-section">Services.</h3>
+                    <div class="footer__content__services__columns">
+                        <div class="footer__content__services__column">
+                            <ul>
+                                <li>Resturent & Bar</li>
+                                <li>Swimming Pool</li>
+                                <li>Wellness & Spa</li>
+                                <li>Restaurant</li>
+                                <li>Conference Room</li>
+                                <li>Coctail Party House</li>
+                            </ul>
+                        </div>
+                        <div class="footer__content__services__column">
+                            <ul>
+                                <li>Gaming Zone</li>
+                                <li>Marrige Party</li>
+                                <li>Party Planning</li>
+                                <li>Tour Consultancy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer__content__contact-us">
+
+                    <h3 class="footer__content__contact-us__title subtitle-section">Contact Us.</h3>
+                    <div class="footer__content__contact-us__telephone">
+                        <img src="{% static 'hotelMiranda/img/telephoneIcon.svg' %}" alt="telephoneIcon">
+                        <div class="footer__content__contact-us__telephone__info">
+                            <p class="footer__content__contact-us__telephone__info__text">Phone Number</p>
+                            <p class="footer__content__contact-us__telephone__info__number">+987 876 765 76 577</p>
+                        </div>
+                    </div>
+                    <div class="footer__content__contact-us__email">
+                        <img src="{% static 'hotelMiranda/img/emailIcon.svg' %}" alt="emailIcon">
+                        <div class="footer__content__contact-us__email__info">
+                            <p class="footer__content__contact-us__email__info__text">Phone Number</p>
+                            <p class="footer__content__contact-us__email__info__number">+987 876 765 76 577</p>
+                        </div>
+                    </div>
+                    <div class="footer__content__contact-us__location">
+                        <img src="{% static 'hotelMiranda/img/locationIcon.svg' %}" alt="locationIcon">
+                        <div class="footer__content__contact-us__location__info">
+                            <p class="footer__content__contact-us__location__info__text">Phone Number</p>
+                            <p class="footer__content__contact-us__location__info__number">+987 876 765 76 577</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="footer__copyright">
+                <p class="footer__copyright__title paragraph paragraph--black2 paragraph--bold">Copyright By@Example - 2020</p>
+                <p class="footer__copyright__terms paragraph paragraph--black2 paragraph--bold">Terms of use<span>|</span>Privacy Environmental Policy</p>
+            </div>
+            
+        </footer>
+
+
+        
+    </body>
+</html>

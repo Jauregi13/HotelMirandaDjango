@@ -1,0 +1,96 @@
+
+@import './mixinRoom';
+
+
+
+.rooms-content {
+
+    @include roomStyle();
+    &__room {
+
+        display: none;
+
+        &--active {
+            display: block;
+        }
+
+    }  
+    
+
+}
+
+@media only screen and (min-width:1000px) and (max-width: 1450px) {
+
+    .rooms-content__room {
+
+        &--active {
+            display: flex;
+        }
+        
+        &__image {
+            width: 35%;
+        }
+
+        &__info {
+
+            padding-top: 1em;
+            text-align: left;
+            margin-left: 4%;
+
+            &__icons {
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                margin: 0;
+                position: unset;
+                margin-bottom: 2em;
+                min-width: 16.2rem;
+                max-width: 19em;
+            }
+
+            &__text {
+                margin: 0;
+            }
+        }
+
+        &__booking {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            
+
+            &__price {
+                font-size: 2rem;
+                line-height: 2.7rem;
+                margin: 0;
+                margin-bottom: 0.3em;
+            }
+
+            &__line {
+                display: block;
+                width: 50%;
+                margin: 0 auto;
+                color: #F1F1F1;
+                margin-bottom: 0.8em;
+            }
+        }
+    }
+    
+}
+
+@media only screen and (min-width:1450px) {
+
+    .rooms-content__room {
+
+        width: 100%;
+
+        &__booking {
+
+            &__price {
+                
+                font-size: 1rem;
+                line-height: 1rem;
+            }
+        }
+    }
+}
