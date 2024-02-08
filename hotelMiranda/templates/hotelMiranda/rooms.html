@@ -28,7 +28,7 @@
         <div class="rooms-content__room__booking">
             <p class="rooms-content__room__booking__price paragraph paragraph--price">${{ room.price }}/Night</p>
             <hr class="rooms-content__room__booking__line">
-            <a href="roomDetails.html" class="rooms-content__room__booking__book">Book Now</a>
+            <a href="{% url 'room' id=room.room_id %}" class="rooms-content__room__booking__book">Book Now</a>
         </div>
 
     </div>

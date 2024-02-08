@@ -1,5 +1,259 @@
-<h1>ROOM DETAILS</h1>
+{% extends 'hotelMiranda/base.html' %}
 
-<h2>{{ room.room_id }}</h2>
-<h2>{{ room.room_type }}</h2>
-<h2>{{ room.room_number }}</h2>
+{% load static %}
+
+{% block content %}
+
+
+<div class="room-details-content">
+
+    <section class="room-details-content__hotel-image">
+
+        <div class="room-details-content__hotel-image__text">
+            <div class="room-details-content__hotel-image__text__titles">
+                <h2 class="room-details-content__hotel-image__text__titles__title title-section">{{room.room_type}}</h2>
+                <h3 class="room-details-content__hotel-image__text__titles__subtitle subtitle-section subtitle-section--medium subtitle-section--black">Luxury Double Bed</h3>
+            </div>
+            <p class="room-details-content__hotel-image__text__price paragraph paragraph--price">${{room.final_price}}<span>/Night</span></p>
+        </div>
+
+        <img src="{% static 'hotelMiranda/img/hotel-room.jpg' %}" alt="Hotel room" class="room-details-content__hotel-image__image">
+
+    </section>
+
+    <section class="room-details-content__check-availability">
+
+        <h2 class="room-details-content__check-availability__title paragraph paragraph--bold">Check Availability</h2>
+        <form action="" method="post" class="room-details-content__check-availability__form">
+
+            <label for="checkin" class="room-details-content__check-availability__form__label">Check In</label>
+            <input type="date" class="room-details-content__check-availability__form__input input" name="checkin">
+
+            <label for="checkout" class="room-details-content__check-availability__form__label">Check Out</label>
+            <input type="date" class="room-details-content__check-availability__form__input input" name="checkout">
+
+            <label for="name" class="room-details-content__check-availability__form__label">Full Name</label>
+            <input type="text" class="room-details-content__check-availability__form__input input" name="name">
+
+            <label for="email" class="room-details-content__check-availability__form__label">Email</label>
+            <input type="email" class="room-details-content__check-availability__form__input input" name="email">
+
+            <label for="phone" class="room-details-content__check-availability__form__label">Phone</label>
+            <input type="text" class="room-details-content__check-availability__form__input input" name="phone">
+
+            <label for="message" class="room-details-content__check-availability__form__label">Message</label>
+            <textarea name="message" id="" cols="30" rows="10" class="room-details-content__check-availability__form__input input"></textarea>
+
+            <input type="submit" class="room-details-content__check-availability__form__button button button--bigger" value="CHECK AVAILABILITY">
+
+        </form>
+
+    </section>
+
+        <div class="room-details-content__image-check-availability__form-content">
+            
+        </div>
+        
+    </section>
+
+    <section class="room-details-content__info">
+
+        <p class="room-details-content__info__text paragraph paragraph--gray">
+            {{room.description}}
+        </p>
+
+    </section>
+
+    <section class="room-details-content__amenities">
+        <h2 class="room-details-content__amenities__title title-content">Amenities</h2>
+
+        <ul class="room-details-content__amenities__icons">
+            {% for amenity in room.amenities %}
+
+            <li class="room-details-content__amenities__icons__icon">
+                <img src="{% static 'hotelMiranda/img/'|add:amenity.image_name|add:'.svg' %}" alt="{{amenity.value}}" class="room-details-content__amenities__icons__icon__image">
+                <p class="room-details-content__amenities__icons__icon__text paragraph paragraph--gray paragraph--bigger paragraph--second-typography">{{amenity.value}}</p>
+            </li>
+
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section class="room-details-content__founder">
+        <div class="room-details-content__founder__image">
+            <img src="{% static 'hotelMiranda/img/founder.png' %}" alt="Founder" class="room-details-content__founder__image__logo">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <h2 class="room-details-content__founder__name title-content">Jon Jauregi</h2>
+        <h3 class="room-details-content__founder__subtitle paragraph">FULL STACK DEVELOPER</h3>
+        <p class="room-details-content__founder__text paragraph paragraph--gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+        
+    </section>
+
+    <section class="room-details-content__cancellation">
+
+        <h2 class="room-details-content__cancellation__title title-content">Cancellation</h2>
+        <p class="room-details-content__cancellation__text paragraph paragraph--gray">
+            {{room.cancellation }}
+        </p>
+    </section>
+
+    <section class="room-details-content__related-rooms">
+        <h2 class="room-details-content__related-rooms__title title-content">Related Rooms</h2>
+        <div class="swiper slider-type1 swiper slider-type1--height-auto">
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="swiper-slide__room swiper-slide__room--smaller-size">
+                        <div class="swiper-slide__room__image-navigation">
+                            <img class="swiper-slide__room__image" src="{% static 'hotelMiranda/img/hotel-room.jpg' %}" alt="hotel room">
+                            <div class="swiper-button-prev swiper-button-prev--move-left">
+                                <i class="fa-solid fa-angle-left"></i>
+                            </div>
+                            <div class="swiper-button-next swiper-button-next--move-right">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </div>
+                        </div>
+                        <div class="swiper-slide__room__info">
+                            <div class="swiper-slide__room__info__icons">
+                                <i class="fa-solid fa-bed"></i>
+                                <i class="fa-solid fa-wifi"></i>
+                                <i class="fa-solid fa-car"></i>
+                                <i class="fa-regular fa-snowflake"></i>
+                                <i class="fa-solid fa-dumbbell"></i>
+                                <i class="fa-solid fa-ban-smoking"></i>
+                                <i class="fa-solid fa-martini-glass-citrus"></i>
+                            </div>
+                            <h4 class="swiper-slide__room__info__title title-content">Minimal Duplex Room</h4>
+                            <p class="swiper-slide__room__info__text paragraph paragraph--gray">Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod tempor.</p>
+                        </div>
+                        <div class="swiper-slide__room__booking">
+                            <p class="swiper-slide__room__booking__price paragraph paragraph--price paragraph--price--small">$345/Night</p>
+                            <hr class="swiper-slide__room__booking__line">
+                            <a href="#" class="swiper-slide__room__booking__book">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="swiper-slide__room swiper-slide__room--smaller-size">
+                        <div class="swiper-slide__room__image-navigation">
+                            <img class="swiper-slide__room__image" src="{% static 'hotelMiranda/img/hotel-room.jpg' %}" alt="hotel room">
+                            <div class="swiper-button-prev swiper-button-prev--move-left">
+                                <i class="fa-solid fa-angle-left"></i>
+                            </div>
+                            <div class="swiper-button-next swiper-button-next--move-right">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </div>
+                        </div>
+                        <div class="swiper-slide__room__info">
+                            <div class="swiper-slide__room__info__icons">
+                                <i class="fa-solid fa-bed"></i>
+                                <i class="fa-solid fa-wifi"></i>
+                                <i class="fa-solid fa-car"></i>
+                                <i class="fa-regular fa-snowflake"></i>
+                                <i class="fa-solid fa-dumbbell"></i>
+                                <i class="fa-solid fa-ban-smoking"></i>
+                                <i class="fa-solid fa-martini-glass-citrus"></i>
+                            </div>
+                            <h4 class="swiper-slide__room__info__title title-content">Minimal Duplex Room</h4>
+                            <p class="swiper-slide__room__info__text paragraph paragraph--gray">Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod tempor.</p>
+                        </div>
+                        <div class="swiper-slide__room__booking">
+                            <p class="swiper-slide__room__booking__price paragraph paragraph--price paragraph--price--small">$345/Night</p>
+                            <hr class="swiper-slide__room__booking__line">
+                            <a href="#" class="swiper-slide__room__booking__book">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="swiper-slide__room swiper-slide__room--smaller-size">
+                        <div class="swiper-slide__room__image-navigation">
+                            <img class="swiper-slide__room__image" src="{% static 'hotelMiranda/img/hotel-room.jpg' %}" alt="hotel room">
+                            <div class="swiper-button-prev swiper-button-prev--move-left">
+                                <i class="fa-solid fa-angle-left"></i>
+                            </div>
+                            <div class="swiper-button-next swiper-button-next--move-right">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </div>
+                        </div>
+                        <div class="swiper-slide__room__info">
+                            <div class="swiper-slide__room__info__icons">
+                                <i class="fa-solid fa-bed"></i>
+                                <i class="fa-solid fa-wifi"></i>
+                                <i class="fa-solid fa-car"></i>
+                                <i class="fa-regular fa-snowflake"></i>
+                                <i class="fa-solid fa-dumbbell"></i>
+                                <i class="fa-solid fa-ban-smoking"></i>
+                                <i class="fa-solid fa-martini-glass-citrus"></i>
+                            </div>
+                            <h4 class="swiper-slide__room__info__title title-content">Minimal Duplex Room</h4>
+                            <p class="swiper-slide__room__info__text paragraph paragraph--gray">Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod tempor.</p>
+                        </div>
+                        <div class="swiper-slide__room__booking">
+                            <p class="swiper-slide__room__booking__price paragraph paragraph--price paragraph--price--small">$345/Night</p>
+                            <hr class="swiper-slide__room__booking__line">
+                            <a href="#" class="swiper-slide__room__booking__book">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+
+        <div class="room-details-content__related-rooms__rooms-content">
+
+            <div class="room-details-content__related-rooms__rooms-content__room">
+                <img class="room-details-content__related-rooms__rooms-content__room__image" src="{% static 'hotelMiranda/img/hotel-room.jpg' %}" alt="hotel room">
+                    <div class="room-details-content__related-rooms__rooms-content__room__info">
+                        <div class="room-details-content__related-rooms__rooms-content__room__info__icons">
+                            <i class="fa-solid fa-bed"></i>
+                            <i class="fa-solid fa-wifi"></i>
+                            <i class="fa-solid fa-car"></i>
+                            <i class="fa-regular fa-snowflake"></i>
+                            <i class="fa-solid fa-dumbbell"></i>
+                            <i class="fa-solid fa-ban-smoking"></i>
+                            <i class="fa-solid fa-martini-glass-citrus"></i>
+                        </div>
+                        <h4 class="room-details-content__related-rooms__rooms-content__room__info__title title-content">Minimal Duplex Room</h4>
+                        <p class="room-details-content__related-rooms__rooms-content__room__info__text paragraph paragraph--gray">Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod tempor.</p>
+                    </div>
+                    <div class="room-details-content__related-rooms__rooms-content__room__booking">
+                        <p class="room-details-content__related-rooms__rooms-content__room__booking__price paragraph paragraph--price paragraph--price--small">$345/Night</p>
+                        <hr class="room-details-content__related-rooms__rooms-content__room__booking__line">
+                        <a href="#" class="room-details-content__related-rooms__rooms-content__room__booking__book">Book Now</a>
+                    </div>
+            </div>
+
+            <div class="room-details-content__related-rooms__rooms-content__room">
+                <img class="room-details-content__related-rooms__rooms-content__room__image" src="{% static 'hotelMiranda/img/hotel-room.jpg' %}" alt="hotel room">
+                    <div class="room-details-content__related-rooms__rooms-content__room__info">
+                        <div class="room-details-content__related-rooms__rooms-content__room__info__icons">
+                            <i class="fa-solid fa-bed"></i>
+                            <i class="fa-solid fa-wifi"></i>
+                            <i class="fa-solid fa-car"></i>
+                            <i class="fa-regular fa-snowflake"></i>
+                            <i class="fa-solid fa-dumbbell"></i>
+                            <i class="fa-solid fa-ban-smoking"></i>
+                            <i class="fa-solid fa-martini-glass-citrus"></i>
+                        </div>
+                        <h4 class="room-details-content__related-rooms__rooms-content__room__info__title title-content">Minimal Duplex Room</h4>
+                        <p class="room-details-content__related-rooms__rooms-content__room__info__text paragraph paragraph--gray">Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod tempor.</p>
+                    </div>
+                    <div class="room-details-content__related-rooms__rooms-content__room__booking">
+                        <p class="room-details-content__related-rooms__rooms-content__room__booking__price paragraph paragraph--price paragraph--price--small">$345/Night</p>
+                        <hr class="room-details-content__related-rooms__rooms-content__room__booking__line">
+                        <a href="#" class="room-details-content__related-rooms__rooms-content__room__booking__book">Book Now</a>
+                    </div>
+            </div>
+
+
+        </div>   
+
+    </section>
+</div>
+
+
+
+
+{% endblock %}
