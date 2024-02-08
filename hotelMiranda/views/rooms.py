@@ -5,7 +5,10 @@ from ..models import Room
 
 def getRooms(request):
     rooms = Room.objects.all()
-    return render(request, 'hotelMiranda/rooms.html',{"rooms": rooms})
+    print(rooms)
+    title = 'Rooms'
+    title_page = 'Ultimate Room'
+    return render(request, 'hotelMiranda/rooms.html',{"rooms": rooms, "title": title, "title_page": title_page, "breadcrumb": title})
 
 def getRoomById(request, room_id):
 

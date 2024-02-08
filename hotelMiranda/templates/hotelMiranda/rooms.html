@@ -1,12 +1,49 @@
 
-<ul>
+{% extends 'hotelMiranda/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<section class="rooms-content">
+
     {% for room in rooms %}
-        <li>{{ room.room_id }}</li>
-    
-        <ul>
-            {% for amenity in room.amenities %}
-            <li>{{ amenity }}</li>
-            {% endfor %}
-        </ul>
+
+    <div class="rooms-content__room">
+        <img class="rooms-content__room__image" src="{% static 'hotelMiranda/img/hotel-room.jpg' %}" alt="hotel room">
+        <div class="rooms-content__room__info">
+            <div class="rooms-content__room__info__icons">
+                <i class="fa-solid fa-bed"></i>
+                <i class="fa-solid fa-wifi"></i>
+                <i class="fa-solid fa-car"></i>
+                <i class="fa-regular fa-snowflake"></i>
+                <i class="fa-solid fa-dumbbell"></i>
+                <i class="fa-solid fa-ban-smoking"></i>
+                <i class="fa-solid fa-martini-glass-citrus"></i>
+            </div>
+            <h4 class="rooms-content__room__info__title title-content">{{ room.room_type }} {{ room.room_id }}</h4>
+            <p class="rooms-content__room__info__text paragraph paragraph--gray">{{ room.description }}</p>
+        </div>
+        <div class="rooms-content__room__booking">
+            <p class="rooms-content__room__booking__price paragraph paragraph--price">${{ room.price }}/Night</p>
+            <hr class="rooms-content__room__booking__line">
+            <a href="roomDetails.html" class="rooms-content__room__booking__book">Book Now</a>
+        </div>
+
+    </div>
+
     {% endfor %}
-    </ul>
+
+</section>
+
+<section class="pagination-rooms">
+    <button class="pagination-rooms__button button button--pagination button--pagination--inactive"id="buttonPrev">&lt;&lt;</button>
+    <button class="pagination-rooms__button button button--pagination button--pagination--active">1</button>
+    <button class="pagination-rooms__button button button--pagination">2</button>
+    <button class="pagination-rooms__button button button--pagination">3</button>
+    <button class="pagination-rooms__button button button--pagination" id="buttonNext">&gt;&gt;</button>
+</section>
+
+
+{% endblock %}
