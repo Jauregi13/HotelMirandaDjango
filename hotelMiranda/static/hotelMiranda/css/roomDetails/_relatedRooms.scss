@@ -1,0 +1,57 @@
+
+@import './../rooms/mixinRoom';
+
+
+.room-details-content__related-rooms {
+
+    @media only screen and (min-width: 1000px) {
+        
+        width: 70%;
+    }
+    
+
+    &__title {
+        margin-bottom: 1em;
+        padding-bottom: 0.3em;
+        border-bottom: 1px solid #F1F1F1;
+    }
+
+     
+
+    &__rooms-content {
+
+        display: none;
+
+        @media only screen and (min-width: 1000px) {
+            
+            display: flex;
+            gap: 2em;
+        }
+
+        @include roomStyle();
+
+        &__room {
+
+            @media only screen and (min-width) {
+            
+                width: 50%;
+            }
+        }
+    }
+
+    & .swiper.slider-type1 {
+
+        @media only screen and (min-width: 1000px) {
+            display: none;
+            
+        }
+    
+        & .swiper-slide {
+    
+            @include roomStyle();
+    
+        }
+    }
+
+}
+

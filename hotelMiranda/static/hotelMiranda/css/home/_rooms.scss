@@ -1,0 +1,97 @@
+
+@use './../sliders' as slider;
+
+.home-content__rooms {
+
+    text-align: center;
+
+    &__title {
+        margin-bottom: 2em;
+    }
+
+    &__subtitle {
+        margin-bottom: 1em;
+    }
+
+    &__icons {
+        background-color: #FFFFFF;
+        width: 75%;
+        margin: 0 auto;
+        padding-bottom: 1.5em;
+        padding-top: 1.5em;
+        padding-left: 2em;
+        position: relative;
+        top: 2em;
+        z-index: 2;
+
+        @media only screen and (min-width: 1000px){
+            width: 22%;
+        }
+
+        & i {
+            margin-right: 1.2em; 
+        }
+    }
+
+    &__room-info {
+        margin: 0 auto;
+        text-align: center;
+        background-color: #FFFFFF;
+        width: 80%;
+        padding-top: 1.5em;
+        position: relative;
+        bottom: 2em;
+        z-index: 2;
+
+        @media only screen and (min-width: 1000px){
+            display: flex;
+            text-align: start;
+            width: 40%;
+            padding-left: 2em;
+            padding-right: 1em;
+        }
+
+        &__text {
+
+            &__title {
+                margin-bottom: 0.5em;
+            }        
+    
+            &__paragraph{
+                width: 80%;
+                margin: auto;
+                margin-bottom: 1em;
+
+                @media only screen and (min-width: 1000px){
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+        }
+
+        &__price {
+
+            & span {
+                font-size: 0.813rem;
+            }
+        }
+    }
+
+    & .swiper.slider-type1 .swiper-slide {
+
+        height: 30em;
+
+        &__image {
+            
+            width: 100%;
+            height: auto;
+
+            @media only screen and (min-width: 1000px){
+                width: 30em;
+            }
+        }
+    }
+}
+
+@include slider.sliderType1
+

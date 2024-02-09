@@ -1,0 +1,57 @@
+
+.about-content__restaurant {
+
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: 0 14px 24px rgba($color: #B8B8B8, $alpha: 0.1);
+    margin-bottom: 3em;
+    padding: 1em;
+
+    &__img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 2em;
+    }
+
+    &__info {
+
+        &__title {
+            margin-bottom: 2em;
+        }
+    
+        &__subtitle {
+            margin-bottom: 0.7em;
+        }
+    
+        &__text {
+            width: 85%;
+            margin-bottom: 1em;
+        }
+
+        &__button {
+            box-shadow: 0 14px 24px rgba($color: #BEAD8E, $alpha: 0.36);
+        }
+    }
+
+    
+
+    @media only screen and (min-width:1000px) {
+
+        width: 70%;
+        display: flex;
+        padding: 2em;
+
+        &__img {
+            width: 45%;
+            margin: 0;
+        }
+
+        &__info {
+            padding: 3em;
+
+            &__text {
+                width: 100%;
+            }
+        }
+    }
+}

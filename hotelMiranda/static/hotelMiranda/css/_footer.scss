@@ -1,0 +1,206 @@
+
+.footer {
+
+    &__content {
+        background-image: url('./../img/backgroundFooter.svg');
+        padding-top: 2em;
+        padding-left: 5%;
+        width: 100%;
+
+        & h3 {
+            font-size: 1.5rem;
+        }
+
+        &__info {
+
+            &__logo {
+                display: flex;
+                align-items: center;
+                margin-bottom: 2em;
+    
+                &__icon {
+                    font-size: 2.5rem;
+                    font-weight: 700;
+                    line-height: 2.7rem;
+                    color: #FFFFFF;
+                    background-color: #BEAD8E;
+                    padding: 0.6em;
+                    margin-right: 1em;
+                }
+    
+                &__title {
+                    font-size: 1.63rem;
+                    line-height: 1.75rem;
+                    letter-spacing: 0.15rem;
+                    width: 6em;
+                }
+            }
+
+            &__introduction {
+                width: 90%;
+                margin-bottom: 2em;
+            }
+
+            &__social-media i {
+                font-size: 2rem;
+                color: #777777;
+                margin-right: 0.2em;
+                padding: 0.2em;
+                background-color: #F8F8F8;
+            }
+    
+            &__social-media {
+    
+                margin-bottom: 2em;
+    
+                & i:hover {
+                    background-color: #BEAD8E;
+                    color: #FFFFFF;
+                }
+    
+            }
+        }
+
+        
+
+        
+
+        
+
+        
+
+        &__services {
+
+            margin-bottom: 1em;
+
+            &__columns {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            &__column {
+                flex: 0 0 50%;
+            }
+
+            & ul {
+                list-style-type: none;
+            }
+
+            & ul li {
+                color: #777777;
+                font-family: 'Roboto';
+                font-size: 1rem;
+                line-height: 3rem;
+            }
+
+            & ul li::before {
+                content: '+';
+                margin-right: 0.5em;
+            }
+        }
+
+        &__contact-us {
+
+            &__telephone, &__email, &__location {
+
+                display: flex;
+
+                & img {
+                    margin-right: 2em;
+                }
+
+                &__info {
+
+                    &__text {
+                        font-family: 'Old Standard TT';
+                        font-size: 1.25rem;
+                        line-height: 1.5rem;
+                        color: #222222;
+                    }
+
+                    &__number {
+                        font-family: 'Roboto';
+                        color: #777777;
+                    }
+                }
+            }
+
+            &__telephone, &__email {
+                margin-bottom: 3em;
+            }
+
+            &__location {
+                padding-bottom: 2em;
+            }
+
+
+        }
+        
+        
+    }
+
+    &__copyright {
+        width: 100%;
+        padding-left: 5%;
+        padding-top: 1em;
+        background-color: #F8F8F8;
+        padding-bottom: 1em;
+
+        &__title {
+            font-family: 'Roboto';
+            margin-bottom: 2em;
+        }
+
+        &__terms {
+            font-family: 'Roboto';
+            & span {
+                display: inline;
+                margin-right: 1em;
+                margin-left: 1em;
+            }
+        }
+    }
+    
+}
+
+@media only screen and (min-width:1000px) {
+    
+
+    .footer__content {
+        padding-left: 15%;
+        padding-right: 15%;
+        display: flex;
+        flex-direction: row;
+
+        &__info {
+            width: 35%;
+
+            &__introduction {
+                width: 65%;
+            }
+        }
+
+        &__services {
+            width: 40%;
+        }
+        
+        &__contact-us {
+            width: 25%;
+            margin-left: 2%;
+        }
+    }
+
+    .footer__copyright {
+        display: flex;
+        flex-direction: row;
+        padding-left: 15%;
+        padding-right: 15%;
+
+        &__terms {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+
+}

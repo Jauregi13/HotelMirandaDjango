@@ -1,0 +1,29 @@
+
+.about-content__video-content {
+
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 3em;
+    margin-bottom: 2em;
+    
+    
+    &__video {
+        width: 100%;
+        height: 30em;
+        margin-bottom: 2em;
+    }
+
+    @media only screen and (min-width:1000px) {
+
+        width: 70%;
+
+        &__subtitle {
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+           
+        }
+    }
+}
+

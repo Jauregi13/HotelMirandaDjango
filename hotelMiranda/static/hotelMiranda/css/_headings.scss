@@ -1,0 +1,90 @@
+
+@use 'variables';
+
+.title-page {
+    font-family: variables.$font_secondary;
+    font-weight: 400;
+    font-size: 4rem;
+    line-height: 3.75rem;
+    letter-spacing: -0.075rem;
+    color: #FFFFFF;
+}
+
+.title-section {
+    font-weight: 700;
+    font-size: 0.8rem;
+    line-height: 1.13rem;
+    letter-spacing: 0.18rem;
+    color: variables.$gray-color;
+
+    &--yellow {
+        color: variables.$secondary-color;
+    }
+
+    &--white {
+        color: #FFFFFF;
+    }
+}
+
+.subtitle-section {
+    font-family: variables.$font_secondary;
+    font-weight: 400;
+    font-size: 3.75rem;
+    line-height: 3.75rem;
+    letter-spacing: -0.075rem;
+    color: #111111;
+
+    &--white {
+        color: #FFFFFF;
+    }
+
+    &--black {
+        color: #222222;
+    }
+
+    &--medium {
+        font-size: 2.8rem;
+        line-height: 3.125rem;
+    }
+
+    &--small {
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+
+    &--x-small {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+    }
+}
+
+.title-content {
+    font-family: variables.$font_secondary;
+    font-weight: 400;
+    font-size: 1.875rem;
+    line-height: 1.875rem;
+    letter-spacing: -0.056rem;
+    color: #111111;
+
+    &--white {
+        color: #FFFFFF;
+    }
+
+    &--big {
+        font-size: 3.75rem;
+        line-height: 3.75rem;
+    }
+
+    &--small {
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+        color: #222222;
+    }
+
+    &--x-small {
+        font-size: 1.1rem;
+        font-weight: 700;
+        line-height: 1.2rem;
+        color: #222222;
+    }
+}

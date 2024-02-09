@@ -1,0 +1,54 @@
+
+
+.room-details-content__check-availability {
+    padding-left: 1em;
+    padding-right: 1em;
+    margin: 0 auto;
+    margin-bottom: 3em;
+
+    @media only screen and (min-width:1000px){
+        width: 27%;
+        position: absolute;
+        top: 2em;
+        right: 0;
+        margin: 0;
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: 2em;
+    }
+
+    &__form {
+
+        &__label {
+            font-size: 0.875rem;
+            line-height: 2rem;
+            font-weight: 700;
+            color: #222222;
+            
+        }
+
+        &__input {
+            margin-bottom: 1em;
+            padding-left: 2em;
+            height: 4em;
+
+            &[type='date']::-webkit-calendar-picker-indicator {
+                padding-right: 2em;
+                width: 1.5em;
+                height: 1.5em;
+                filter: invert(60%);
+            }
+        }
+
+        & textarea {
+            height: auto;
+        }
+
+        &__button {
+            width: 100%;
+            font-weight: 400;
+        }
+    }
+}

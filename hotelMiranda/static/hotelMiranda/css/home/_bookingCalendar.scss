@@ -1,0 +1,77 @@
+
+
+.home-content__booking-calendar {
+
+
+    background-color: #222222;
+    margin-bottom: 2em;
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        padding-top: 2em;
+        padding-left: 1em;
+        padding-bottom: 2em;
+
+        @media only screen and (min-width:1000px){
+            width: 70%;
+            margin: 0 auto;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        &__input-group {
+
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+
+            & label {
+                font-family: 'Roboto';
+                color: #FFFFFF;
+                font-weight: 700;
+                font-size: 1rem;
+                margin-bottom: 1em;
+            }
+
+            & input[type='date'] {
+                position: relative;
+                width: 80%;
+                appearance: none;
+                border: none;
+                border-bottom: 1px solid #BEAD8E;
+                background-color: hsl(0, 0%, 13%);
+                margin-bottom: 2em;
+                color: #686868;
+                font-family: 'Roboto';
+                padding-left: 2em;
+                padding-bottom: 0.5em;
+            }
+
+            & input[type='date']::-webkit-calendar-picker-indicator {
+
+                position: absolute;
+                left: 0;
+                background-image: url('./../img/calendarIcon.svg');
+                background-repeat: no-repeat;
+                width: 1rem;
+                height: 1rem;
+            }
+
+            & input[type='date']:focus {
+                appearance: none;
+                outline: none;
+            }
+        }
+
+        & input[type='submit'] {
+            width: 70%;
+
+            @media only screen and (min-width:1000px){
+                margin-left: 5em;
+                padding: 0;
+            }
+        }
+    }
+}
