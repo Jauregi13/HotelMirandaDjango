@@ -12,7 +12,3 @@ def renderAbout(request):
     title = 'About Us'
     breadcrumb = 'About'
     return render(request, "hotelMiranda/aboutUs.html", {'title': title, 'title_page': title, 'breadcrumb': breadcrumb})
-
-def renderContact(request):
-    title = 'Contact'
-    return render(request, "hotelMiranda/contact.html", {'title': title})
