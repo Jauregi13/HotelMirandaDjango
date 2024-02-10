@@ -55,7 +55,8 @@
 
     <section class="contact-content__form">
 
-        <form action="#" method="post">
+        <form action="{% url 'contact' %}" method="post">
+            {% csrf_token %}
             <div class="contact-content__form__input-group">
                 <div class="contact-content__form__input-group__icon">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,7 +70,7 @@
                         </defs>
                     </svg>
                 </div>
-                <input type="text" name="name" placeholder="Your full name" class="contact-content__form__input-group__input input">
+                {{ form.customer }}
             </div>
 
             <div class="contact-content__form__input-group">
@@ -86,7 +87,13 @@
                         </defs>
                     </svg>
                 </div>
-                <input type="text" name="phone" placeholder="Add phone number" class="contact-content__form__input-group__input input">
+                {{ form.phone }}
+                {% if form.phone.errors %}
+                    {% for error in form.phone.errors %}
+
+                        <p class="contact-content__form__input-group__error paragraph paragraph--error">{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
             </div>
 
             <div class="contact-content__form__input-group">
@@ -103,7 +110,14 @@
                         </defs>
                     </svg>
                 </div>
-                <input type="email" name="email" placeholder="Enter email address" class="contact-content__form__input-group__input input">
+                {{ form.email }}
+                {% if form.email.errors %}
+                    {% for error in form.email.errors %}
+
+                        <p class="contact-content__form__input-group__error paragraph paragraph--error">{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+
             </div>
 
             <div class="contact-content__form__input-group">
@@ -115,7 +129,7 @@
                         <path d="M5 12.5C4.72384 12.5 4.5 12.2761 4.5 12V0.5C4.5 0.223875 4.72384 0 5 0C5.27616 0 5.5 0.223875 5.5 0.5V12C5.5 12.2761 5.27616 12.5 5 12.5Z" fill="#BEAD8E"/>
                     </svg>
                 </div>
-                <input type="text" name="subject" placeholder="Enter subject" class="contact-content__form__input-group__input input">
+                {{ form.subject }}
             </div>
             <div class="contact-content__form__input-group">
                 <div class="contact-content__form__input-group__icon">
@@ -123,7 +137,7 @@
                         <path d="M15.546 2.88058L13.1196 0.454198C12.8267 0.161288 12.4373 0 12.0231 0C11.6089 0 11.2195 0.161288 10.9266 0.454188L0.769599 10.611C0.673192 10.7075 0.611047 10.8328 0.592727 10.9679L0.00566508 15.2929C-0.0205025 15.4858 0.0449164 15.6798 0.182565 15.8174C0.300224 15.9351 0.459079 16 0.623225 16C0.651071 16 0.679097 15.9981 0.707095 15.9943L5.03208 15.4073C5.1672 15.3889 5.29257 15.3268 5.38898 15.2304L15.546 5.07357C15.8389 4.78069 16.0001 4.39127 16.0001 3.97709C16.0001 3.56287 15.8388 3.17346 15.546 2.88058ZM4.65618 14.2004L1.35098 14.649L1.79962 11.3438L8.99714 4.14641L11.8537 7.00296L4.65618 14.2004ZM14.6645 4.19214L12.7351 6.12153L9.87855 3.265L11.808 1.33561C11.8855 1.25809 11.976 1.24651 12.0231 1.24651C12.0701 1.24651 12.1606 1.25809 12.2382 1.33561L14.6646 3.76199C14.7421 3.83951 14.7536 3.93002 14.7536 3.97706C14.7536 4.0241 14.7421 4.11462 14.6645 4.19214Z" fill="#BEAD8E"/>
                     </svg>
                 </div>
-                <textarea name="message" id="" cols="30" rows="10" placeholder="Enter message" class="contact-content__form__input-group__input input"></textarea>
+                {{ form.comment }}
             </div>
             
             <input type="submit" class="contact-content__form__button button button--bigger" value="SEND">
@@ -132,6 +146,14 @@
     </section>
 
 </div>
+
+{% if form.errors %}
+
+    <script>
+        document.querySelector('.contact-content__form__input-group__error').closest('.contact-content__form__input-group').querySelector('input').focus()
+    </script>
+
+{% endif %}
 
 
 

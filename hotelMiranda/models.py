@@ -1,5 +1,6 @@
 from django.db import models
-from django.core.validators import MaxValueValidator, MinValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator, RegexValidator
+from django.utils import timezone
 
 class Room(models.Model):
     room_id = models.CharField(max_length=5,unique=True)
@@ -36,12 +37,17 @@ class Booking(models.Model):
 
 
 class Contact(models.Model):
+    phone_validator = RegexValidator(
+            regex= r'[6-9][0-9]{2} [0-9]{3} [0-9]{3}',
+            message= 'Invalid phone number, you have to put with this format: 999 999 999',
+            code= 'invalid_phone_number'
+        )
     review_id = models.CharField(max_length=5,unique=True)
-    date = models.DateTimeField()
+    date = models.DateTimeField(default=timezone.now)
     customer = models.CharField(max_length=30)
-    customer_image = models.CharField(max_length=255)
-    email = models.EmailField(max_length=255)
-    phone = models.CharField(max_length=11)
-    subject = models.CharField(max_length=255)
+    customer_image = models.CharField(max_length=255, null=True)
+    email = models.EmailField(max_length=30)
+    phone = models.CharField(max_length=11, validators=[phone_validator])
+    subject = models.CharField(max_length=30)
     comment = models.CharField(max_length=1024)
-    published = models.BooleanField("Is published?")
+    published = models.BooleanField("Is published?", default=True) 
