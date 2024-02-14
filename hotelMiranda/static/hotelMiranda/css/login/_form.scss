@@ -1,0 +1,30 @@
+
+
+
+.login-content__form {
+
+    &__input-group {
+        display: flex;
+        flex-direction: column;
+
+        &__input {
+            height: 4em;
+            padding-left: 2em;
+            margin-bottom: 1em;
+            width: 50%;
+        }
+
+        &__label {
+            font-size: 0.875rem;
+            line-height: 2rem;
+            font-weight: 700;
+            color: #222222;
+        }
+    }
+
+    &__error {
+        margin-top: 0.5em;
+    }
+
+    
+}

@@ -1,6 +1,7 @@
 from django import forms
 from django.core.validators import RegexValidator
 from hotelMiranda.models import Contact, Booking
+from django.contrib.auth import authenticate
 
 class ContactForm(forms.ModelForm):
 
@@ -36,3 +37,19 @@ class BookingForm(forms.ModelForm):
             "phone": "Phone",
             "special_request": "Message"
         }
+
+class LoginForm(forms.Form):
+
+    username = forms.CharField(max_length=254, widget=forms.TextInput(attrs={'class': 'login-content__form__input-group__input input'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'login-content__form__input-group__input input'}))
+    
+    def clean(self):
+        username = self.cleaned_data.get('username')
+        password = self.cleaned_data.get('password')
+        user = authenticate(username=username,password=password)
+
+        if user is None or not user.is_active:
+            raise forms.ValidationError("The username or password is incorrect. Please try again")
+        
+        self.cleaned_data['user'] = user
+        return self.cleaned_data

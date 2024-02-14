@@ -37,7 +37,9 @@
                 </nav>
                 <div class="header__content__icons">
                     <div class="header__content__icons__icon">
-                        <img src="{% static 'hotelMiranda/img/accountIcon.svg' %}" alt="account"/>
+                        <a href="{% url 'login' %}">
+                            <img src="{% static 'hotelMiranda/img/accountIcon.svg' %}" alt="account"/>
+                        </a>
                     </div>
                     <div class="header__content__icons__icon">
                         <img src="{% static 'hotelMiranda/img/searchIcon.svg' %}" />

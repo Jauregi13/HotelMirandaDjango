@@ -1,0 +1,30 @@
+
+{% extends 'hotelMiranda/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="login-content">
+
+    <div class="login-content__form">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="login-content__form__input-group">
+                <label for="{{field.name}}" class="login-content__form__input-group__label">{{ field.label }}</label>
+                {{ field }}
+            </div>
+            {% endfor %}
+            <input type="submit" class="button button--bigger" value="Login" />
+            {% for error in form.non_field_errors %}
+                <p class="login-content__form__error paragraph paragraph--error">{{ error }}</p>
+            {% endfor %}
+        </form>
+    </div>
+    
+</div>
+
+
+
+{% endblock %}
