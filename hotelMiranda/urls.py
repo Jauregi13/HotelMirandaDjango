@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import rooms,generales,contact
+from .views import rooms,generales, contact
 
 urlpatterns = [
     path('', generales.redirectHome, name="redirectHome"),
@@ -9,5 +9,5 @@ urlpatterns = [
     path("rooms/", rooms.getRoomsAvailable, name="roomsAvailable"),
     path("rooms/<int:id>/",rooms.getRoomById, name="room"),
     path("offers/", rooms.getRoomsOffer, name="offers"),
-    path("contact/", contact.renderContact, name="contact")
+    path("contact/", contact.ContactView.as_view(), name="contact")
 ]
