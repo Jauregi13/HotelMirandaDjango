@@ -2276,6 +2276,7 @@
 }
 .room-details-content__check-availability__form textarea {
   height: auto;
+  padding-top: 1em;
 }
 .room-details-content__check-availability__form__button {
   width: 100%;

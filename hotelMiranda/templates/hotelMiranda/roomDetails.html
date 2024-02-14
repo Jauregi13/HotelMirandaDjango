@@ -24,30 +24,30 @@
     <section class="room-details-content__check-availability">
 
         <h2 class="room-details-content__check-availability__title paragraph paragraph--bold">Check Availability</h2>
-        <form action="" method="post" class="room-details-content__check-availability__form">
-
-            <label for="checkin" class="room-details-content__check-availability__form__label">Check In</label>
-            <input type="date" class="room-details-content__check-availability__form__input input" name="checkin">
-
-            <label for="checkout" class="room-details-content__check-availability__form__label">Check Out</label>
-            <input type="date" class="room-details-content__check-availability__form__input input" name="checkout">
-
-            <label for="name" class="room-details-content__check-availability__form__label">Full Name</label>
-            <input type="text" class="room-details-content__check-availability__form__input input" name="name">
-
-            <label for="email" class="room-details-content__check-availability__form__label">Email</label>
-            <input type="email" class="room-details-content__check-availability__form__input input" name="email">
-
-            <label for="phone" class="room-details-content__check-availability__form__label">Phone</label>
-            <input type="text" class="room-details-content__check-availability__form__input input" name="phone">
-
-            <label for="message" class="room-details-content__check-availability__form__label">Message</label>
-            <textarea name="message" id="" cols="30" rows="10" class="room-details-content__check-availability__form__input input"></textarea>
+        <form action="{% url 'room' id=room.room_id %}" method="post" class="room-details-content__check-availability__form">
+            {% csrf_token %}
+            {% for field in bookingForm %}
+                <label class="room-details-content__check-availability__form__label" for="{{field.name}}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <p class="paragraph paragraph--error">{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
 
             <input type="submit" class="room-details-content__check-availability__form__button button button--bigger" value="CHECK AVAILABILITY">
 
         </form>
+        {% for error in bookingForm.non_field_errors %}
+            <p class="paragraph paragraph--error">{{ error }}</p>
+        {% endfor %}
 
+        {% if request.method == 'POST' and not bookingForm.errors %}
+            <h2 class="title-content">!Thank you for your request!</h2>
+            <p class="paragraph">We have received it correctly. Someone from our Team will get back to you very soon.</p>
+            <p class="paragraph">The Miranda Hotel</p>
+        {% endif %}
     </section>
 
         <div class="room-details-content__image-check-availability__form-content">

@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404
 from django.db.models import F,ExpressionWrapper, fields
-from ..models import Room
+from ..models import Room, Booking
+import random
+from hotelMiranda.forms import BookingForm
 
 
 def getRooms(request):
@@ -18,11 +20,27 @@ def getRoomById(request, id):
 
         room = get_object_or_404(Room,room_id = id)
         room.final_price = room.price - int(room.price * ((room.offer) / 100))
-        
+        bookingForm = BookingForm()
         title = 'Room Details'
         title_page = 'Ultimate Room'
+
+        if request.method == 'POST':
+            bookingForm = BookingForm(request.POST)
+
+            if bookingForm.is_valid():
+                booking = bookingForm.save(commit=False)
+                booking.room = room
+                booking_id = random.randint(10000,99999)
+                while Booking.objects.filter(booking_id=booking_id).exists():
+                    booking_id = random.randint(10000,99999)
+                booking.booking_id = booking_id
+                booking.save()
+                bookingForm = BookingForm()
+                return render(request,'hotelMiranda/roomDetails.html',
+                {"room": room, "title": title, "title_page": title_page, "breadcrumb": title, 'bookingForm': bookingForm })
+
         return render(request,'hotelMiranda/roomDetails.html',
-        {"room": room, "title": title, "title_page": title_page, "breadcrumb": title })
+        {"room": room, "title": title, "title_page": title_page, "breadcrumb": title, 'bookingForm': bookingForm })
     
     except Room.DoesNotExist:
         raise Http404('Room does not exist')
