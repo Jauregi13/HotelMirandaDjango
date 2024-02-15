@@ -512,6 +512,8 @@
   line-height: 2.7rem;
 }
 .paragraph--error {
+  font-size: 1rem;
+  font-weight: 600;
   color: #DE5777;
 }
 .paragraph--about-counter {

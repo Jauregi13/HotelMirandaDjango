@@ -2,6 +2,8 @@ from django import forms
 from django.core.validators import RegexValidator
 from hotelMiranda.models import Contact, Booking
 from django.contrib.auth import authenticate
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 class ContactForm(forms.ModelForm):
 
@@ -55,9 +57,19 @@ class LoginForm(forms.Form):
         return self.cleaned_data
 
 
-class RegisterForm(forms.Form):
+class RegisterForm(UserCreationForm):
 
-    username = forms.CharField(max_length=254, widget=forms.TextInput(attrs={'class': 'register-content__form__input-group__input input'}))
-    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'register-content__form__input-group__input input'}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'register-content__form__input-group__input input'}))
-    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput(attrs={'class': 'register-content__form__input-group__input input'}))
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class': 'register-content__form__input-group__input input'}))
+    password2 = forms.CharField(label='Password Confirmation', widget=forms.PasswordInput(attrs={'class': 'register-content__form__input-group__input input'}))
+
+    class Meta:
+        
+        model = User
+        fields = ['username','email','first_name','last_name']
+
+        widgets = {
+            "username" : forms.TextInput(attrs={'class': 'register-content__form__input-group__input input'}),
+            "email": forms.EmailInput(attrs={'class': 'register-content__form__input-group__input input'}),
+            "first_name" : forms.TextInput(attrs={'class': 'register-content__form__input-group__input input'}),
+            "last_name" : forms.TextInput(attrs={'class': 'register-content__form__input-group__input input'}),
+        }

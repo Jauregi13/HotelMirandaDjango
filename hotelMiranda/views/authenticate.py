@@ -24,6 +24,12 @@ def register(request):
     title = 'Register'
     registerForm = RegisterForm()
 
+    if request.method == 'POST':
+        registerForm = RegisterForm(request.POST)
+
+        if registerForm.is_valid():
+            registerForm.save()
+        
     return render(request, "hotelMiranda/register.html", {'title': title, 'title_page': title, 'breadcrumb': title, 'form': registerForm})
 
 def logout(request):
