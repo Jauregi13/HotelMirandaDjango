@@ -60,7 +60,7 @@ $font_secondary: 'Archivo';
             position: fixed;
             top: 3.5em;
             background-color: #FFFFFF;
-            width: 100%;
+            width: 80%;
             padding-top: 2em;
             padding-left: 2em;
             padding-bottom: 1em;
@@ -87,7 +87,18 @@ $font_secondary: 'Archivo';
             justify-content: space-evenly;
 
         }
+        &__menu-login {
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            &__list {
+                display: block;
+            }
+        }
     }
+
+    
 
     
 }
@@ -156,6 +167,8 @@ $font_secondary: 'Archivo';
                         margin-right: 2em;
                     }
                 }
+
+                
             }
 
             &__icons {
@@ -167,6 +180,25 @@ $font_secondary: 'Archivo';
                     margin-left: 1em;
                     padding: 0.6em;
                     border: 2px solid rgba($color: #858585, $alpha: 0.3);
+                }
+            }
+
+            &__menu-login {
+
+                background-color: #FFFFFF;
+                position: absolute;
+                top: 6em;
+                right: 0;
+                width: calc(6.8em + 7%);
+
+                &__list {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 1em;
+
+                    &__item {
+                        margin-bottom: 1em;
+                    }
                 }
             }
         }

@@ -1,0 +1,8 @@
+
+@import './../mixinForms';
+
+
+.register-content__form {
+
+    @include formStyle;
+}

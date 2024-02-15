@@ -6,12 +6,15 @@
 @use 'headings';
 @use 'paragraphs';
 @use 'inputs';
+@use 'menus';
 @use 'home/home';
 @use 'aboutUs/aboutUs';
 @use 'rooms/rooms';
 @use 'offers/offers';
 @use 'contact/contact';
 @use 'roomDetails/roomDetails';
+@use 'login/login';
+@use 'register/register';
 @import url('https://fonts.googleapis.com/css2?family=Archivo&family=Old+Standard+TT&family=Roboto');
 
 

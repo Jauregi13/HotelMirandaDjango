@@ -35,13 +35,48 @@
                         <li><a href="{% url 'contact' %}">Contact</a></li>
                     </ul>
                 </nav>
+                {% if user.is_authenticated %}
+                    <div class="header__content__username">
+                        <p class="paragraph paragraph--bold">Hello {{ user.username }}</p>
+                    </div>
+                        
+                {% endif %}
                 <div class="header__content__icons">
                     <div class="header__content__icons__icon">
-                        <img src="{% static 'hotelMiranda/img/accountIcon.svg' %}" alt="account"/>
+                        <a href="{% url 'login' %}">
+                            <img src="{% static 'hotelMiranda/img/accountIcon.svg' %}" alt="account"/>
+                        </a>
                     </div>
                     <div class="header__content__icons__icon">
                         <img src="{% static 'hotelMiranda/img/searchIcon.svg' %}" />
                     </div>
+
+                    
+                </div>
+
+                <div class="header__content__menu-login">
+                    <ul class="header__content__menu-login__list">
+                        {% if user.is_authenticated %}
+                        <li class="header__content__menu-login__list__item item">
+                            <a class="header__content__menu-login__list__item__link link" href="{% url 'login' %}">Profile</a>
+                        </li>
+                        <li class="header__content__menu-login__list__item item">
+                            <a class="header__content__menu-login__list__item__link link" href="{% url 'register' %}">View your orders</a>
+                        </li>
+                        <li class="header__content__menu-login__list__item item">
+                            <a class="header__content__menu-login__list__item__link link" href="{% url 'logout' %}">Logout</a>
+                        </li>
+
+                        {% else %}
+                        <li class="header__content__menu-login__list__item item">
+                            <a class="header__content__menu-login__list__item__link link" href="{% url 'login' %}">Login</a>
+                        </li>
+                        <li class="header__content__menu-login__list__item item">
+                            <a class="header__content__menu-login__list__item__link link" href="{% url 'register' %}">Register</a>
+                        </li>
+                        {% endif %}
+
+                    </ul>
                 </div>
                 
         

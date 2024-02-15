@@ -1,0 +1,9 @@
+
+@import './../mixinForms';
+
+
+.login-content__form {
+
+    @include formStyle;
+
+}
