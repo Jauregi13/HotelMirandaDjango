@@ -53,3 +53,11 @@ class LoginForm(forms.Form):
         
         self.cleaned_data['user'] = user
         return self.cleaned_data
+
+
+class RegisterForm(forms.Form):
+
+    username = forms.CharField(max_length=254, widget=forms.TextInput(attrs={'class': 'login-content__form__input-group__input input'}))
+    email = forms.EmailField()
+    password = forms.CharField(widget=forms.PasswordInput())
+    password2 = forms.CharField(widget=forms.PasswordInput())

@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
-from hotelMiranda.forms import LoginForm
-from django.contrib.auth import login
+from hotelMiranda.forms import LoginForm, RegisterForm
+from django.contrib.auth import login, logout as logoutUser
 from django.contrib import messages
 
 def loginPage(request):
@@ -20,4 +20,13 @@ def loginPage(request):
 
 
 def register(request):
-    pass
+    
+    title = 'Register'
+    registerForm = RegisterForm()
+
+    return render(request, "hotelMiranda/register.html", {'title': title, 'title_page': title, 'breadcrumb': title})
+
+def logout(request):
+    
+    logoutUser(request)
+    return redirect('home')

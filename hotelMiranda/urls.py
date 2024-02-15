@@ -11,5 +11,6 @@ urlpatterns = [
     path("offers/", rooms.getRoomsOffer, name="offers"),
     path("contact/", contact.ContactView.as_view(), name="contact"),
     path("login/",authenticate.loginPage, name="login"),
-    path("register/", authenticate.register, name="register")
+    path("register/", authenticate.register, name="register"),
+    path("logout/", authenticate.logout, name="logout")
 ]
