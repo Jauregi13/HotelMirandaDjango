@@ -57,7 +57,7 @@ class LoginForm(forms.Form):
 
 class RegisterForm(forms.Form):
 
-    username = forms.CharField(max_length=254, widget=forms.TextInput(attrs={'class': 'login-content__form__input-group__input input'}))
-    email = forms.EmailField()
-    password = forms.CharField(widget=forms.PasswordInput())
-    password2 = forms.CharField(widget=forms.PasswordInput())
+    username = forms.CharField(max_length=254, widget=forms.TextInput(attrs={'class': 'register-content__form__input-group__input input'}))
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'register-content__form__input-group__input input'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'register-content__form__input-group__input input'}))
+    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput(attrs={'class': 'register-content__form__input-group__input input'}))

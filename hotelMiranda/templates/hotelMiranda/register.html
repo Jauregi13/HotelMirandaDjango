@@ -5,6 +5,24 @@
 
 {% block content %}
 
+<div class="register-content">
+
+    <div class="register-content__form">
+        <form action="" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="register-content__form__input-group">
+                <label for="{{field.name}}" class="register-content__form__input-group__label">{{ field.label }}</label>
+                {{ field }}
+            </div>
+            {% endfor %}
+            <input type="submit" class="button button--bigger" value="Register" />
+            {% for error in form.non_field_errors %}
+                <p class="register-content__form__error paragraph paragraph--error">{{ error }}</p>
+            {% endfor %}
+        </form>
+    </div>
+</div>
 
 
 {% endblock %}

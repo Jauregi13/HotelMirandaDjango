@@ -24,9 +24,9 @@ def register(request):
     title = 'Register'
     registerForm = RegisterForm()
 
-    return render(request, "hotelMiranda/register.html", {'title': title, 'title_page': title, 'breadcrumb': title})
+    return render(request, "hotelMiranda/register.html", {'title': title, 'title_page': title, 'breadcrumb': title, 'form': registerForm})
 
 def logout(request):
-    
+
     logoutUser(request)
     return redirect('home')

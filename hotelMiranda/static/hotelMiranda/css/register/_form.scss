@@ -2,8 +2,7 @@
 @import './../mixinForms';
 
 
-.login-content__form {
+.register-content__form {
 
     @include formStyle;
-
 }
