@@ -2,6 +2,8 @@ from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator, RegexValidator
 from django.utils import timezone
 from django.core.exceptions import ValidationError
+from django.contrib.auth.models import User
+from hotelMiranda.choices import RoomTypeChoice, BookingStatusChoice, OrderTypeChoice
 
 phone_validator = RegexValidator(
             regex= r'[6-9][0-9]{2} [0-9]{3} [0-9]{3}',
@@ -11,13 +13,7 @@ phone_validator = RegexValidator(
 
 class Room(models.Model):
     room_id = models.CharField(max_length=5,unique=True)
-    room_type_choice = {
-        "single_bed" : "Single Bed",
-        "double_bed" : "Double Bed",
-        "double_superior" : "Double Superior",
-        "suite": "Suite"
-    }
-    room_type = models.CharField(choices=room_type_choice, max_length=15)
+    room_type = models.CharField(choices=RoomTypeChoice, max_length=15)
     room_number = models.IntegerField()
     description = models.CharField(max_length=255)
     amenities = models.JSONField()
@@ -37,15 +33,9 @@ class Booking(models.Model):
     check_out = models.DateTimeField()
     special_request = models.CharField(max_length=255, blank=True)
     room = models.ForeignKey(Room,on_delete=models.CASCADE, related_name='bookings')
-    status_choice = {
-        "check_in" : "Check In",
-        "check_out" : "Check Out",
-        "in_progress" : "In Progress"
-    }
-    status = models.CharField(choices=status_choice, max_length=11)
+    status = models.CharField(choices=BookingStatusChoice, max_length=11)
 
     def clean(self):
-        print('llamada clean')
         if self.check_in > self.check_out:
             raise ValidationError('Check-out must be after check-in')
 
@@ -61,3 +51,11 @@ class Contact(models.Model):
     subject = models.CharField(max_length=50)
     comment = models.CharField(max_length=1024)
     published = models.BooleanField("Is published?", default=True) 
+
+class Order(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE, related_name='user')
+    room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name='room')
+    order_type = models.CharField(max_length=50, choices=OrderTypeChoice)
+    description = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
