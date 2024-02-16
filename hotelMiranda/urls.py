@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import rooms,generales, contact, authenticate
+from .views import rooms,generales, contact, authenticate, order
+
 
 urlpatterns = [
     path('', generales.redirectHome, name="redirectHome"),
@@ -12,5 +13,6 @@ urlpatterns = [
     path("contact/", contact.ContactView.as_view(), name="contact"),
     path("login/",authenticate.loginPage, name="login"),
     path("register/", authenticate.register, name="register"),
-    path("logout/", authenticate.logout, name="logout")
+    path("logout/", authenticate.logout, name="logout"),
+    path("order/", order.OrderView.as_view(), name="order")
 ]
