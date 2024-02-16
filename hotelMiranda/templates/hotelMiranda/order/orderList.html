@@ -1,0 +1,37 @@
+
+{% extends 'hotelMiranda/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<main class="order-content">
+
+    <section class="order-content__view-list">
+        <table class="order-content__view-list__table">
+            <thead class="order-content__view-list__table__head">
+                <tr>
+                    <th>Order type</th>
+                    <th>Description</th>
+                    <th>Room</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody class="order-content__view-list__table__body">
+                {% for order in object_list %}
+                    <tr>
+                        <td>{{order.order_type}}</td>
+                        <td>{{order.description}}</td>
+                        <td>{{order.room.room_type}} {{order.room.room_number}}</td>
+                        <td></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+</main>
+
+
+{% endblock %}

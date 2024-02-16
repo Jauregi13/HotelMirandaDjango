@@ -2651,6 +2651,35 @@
   }
 }
 
+.order-content__view-list__table {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.order-content__view-list__table__head {
+  background-color: #BEAD8E;
+  border-bottom: 2px solid #BEAD8E;
+  color: #FFFFFF;
+}
+.order-content__view-list__table__head th {
+  padding: 1em;
+}
+.order-content__view-list__table__body td {
+  padding: 1em;
+}
+
+.order-content {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 2em;
+  margin-bottom: 4em;
+}
+@media only screen and (min-width: 1000px) {
+  .order-content {
+    width: 70%;
+  }
+}
+
 /*@mixin paragraph2 {
     font-family: $font_tertiary;
 }*/

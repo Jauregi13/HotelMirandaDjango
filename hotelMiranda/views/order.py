@@ -1,29 +1,20 @@
-from django.views import View
-from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from hotelMiranda.models import Order
 
-class OrderView(View):
+class OrderListView(LoginRequiredMixin,ListView):
+    model = Order
+    template_name= "hotelMiranda/order/orderList.html"
+    login_url = '/login/'
 
-    
-    @login_required(login_url='login')
-    def get(self,request):
-        print(request.user)
-        user = request.user
-        orders = Order.objects.filter(user=user.id)
-        return render(request, "hotelMiranda/order.html", {'orders': orders})
-    
-    @login_required(login_url='login')
-    def post(self,request):
-        user = request.user
-        return render(request, "hotelMiranda/order.html")
-    
-    @login_required(login_url='login')
-    def patch(self,request):
-        user = request.user
-        return render(request, "hotelMiranda/order.html")
-    
-    @login_required(login_url='login')
-    def delete(self, request):
-        user = request.user
-        return render(request, "hotelMiranda/order.html")
+    def get_queryset(self):
+
+        return Order.objects.filter(user=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = 'Your orders'
+        context["title_page"] = 'Your Orders'
+        context["breadcrumb"] = 'Orders'
+        return context

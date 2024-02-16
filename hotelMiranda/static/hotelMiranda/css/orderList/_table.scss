@@ -1,0 +1,30 @@
+
+@import './../variables';
+
+
+.order-content__view-list {
+
+    &__table {
+        width: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+
+        &__head {
+            background-color: $primary-color;
+            border-bottom: 2px solid $primary-color;
+            color: $white-color;
+
+            & th {
+                padding: 1em;
+            }
+            
+        }
+
+        &__body {
+
+            & td {
+                padding: 1em;
+            }
+        }
+    }
+}
