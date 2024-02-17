@@ -1,0 +1,26 @@
+
+{% extends 'hotelMiranda/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<main class="create-order-content">
+
+    <form action="" method="post" class="create-order-content__form">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div class="create-order-content__form__input-group">
+                <label for="{{field.name}}" class="create-order-content__form__input-group__label">{{ field.label }}</label>
+                {{ field }}
+            </div>
+            
+        {% endfor %}
+    </form>
+
+</main>
+
+
+
+{% endblock %}

@@ -53,8 +53,8 @@ class Contact(models.Model):
     published = models.BooleanField("Is published?", default=True) 
 
 class Order(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE, related_name='user')
-    room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name='room')
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    room = models.ForeignKey(Room, on_delete=models.CASCADE)
     order_type = models.CharField(max_length=50, choices=OrderTypeChoice)
     description = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)

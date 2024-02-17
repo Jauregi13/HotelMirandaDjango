@@ -8,6 +8,7 @@
         width: 100%;
         border-radius: 20px;
         overflow: hidden;
+        box-shadow: 0 10px 15px -10px rgba($color: $gray-color, $alpha: 1.0);
 
         &__head {
             background-color: $primary-color;

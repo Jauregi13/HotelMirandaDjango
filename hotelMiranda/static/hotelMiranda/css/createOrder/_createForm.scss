@@ -1,0 +1,7 @@
+
+ @import './../mixinForms';
+
+.create-order-content__form {
+
+    @include formStyle;
+}

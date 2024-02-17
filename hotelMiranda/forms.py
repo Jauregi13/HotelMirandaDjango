@@ -1,6 +1,6 @@
 from django import forms
 from django.core.validators import RegexValidator
-from hotelMiranda.models import Contact, Booking
+from hotelMiranda.models import Contact, Booking, Order, Room
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -72,4 +72,21 @@ class RegisterForm(UserCreationForm):
             "email": forms.EmailInput(attrs={'class': 'register-content__form__input-group__input input'}),
             "first_name" : forms.TextInput(attrs={'class': 'register-content__form__input-group__input input'}),
             "last_name" : forms.TextInput(attrs={'class': 'register-content__form__input-group__input input'}),
+        }
+
+class OrderForm(forms.ModelForm):
+
+    def __init__(self,user, *args, **kwargs):
+        super(OrderForm, self).__init__(*args, **kwargs)
+        room_ids = Booking.objects.filter(email=user.email).values_list('room_id').distinct()
+        self.fields['room'].queryset = Room.objects.filter(id__in=room_ids)
+
+    class Meta:
+        model = Order
+        fields = ['room','order_type', 'description']
+
+        widgets = {
+            'room': forms.Select(attrs={'class': 'create-order-content__form__input-group__input input'}),
+            'order_type': forms.Select(attrs={'class': 'create-order-content__form__input-group__input input'}),
+            'description': forms.Textarea(attrs={'class': 'create-order-content__form__input-group__input input'})
         }

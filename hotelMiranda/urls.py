@@ -14,5 +14,6 @@ urlpatterns = [
     path("login/",authenticate.loginPage, name="login"),
     path("register/", authenticate.register, name="register"),
     path("logout/", authenticate.logout, name="logout"),
-    path("order/", order.OrderListView.as_view(), name="order")
+    path("orders/", order.OrderListView.as_view(), name="order"),
+    path("orders/create", order.CreateOrderView.as_view(), name="createOrder")
 ]

@@ -2655,6 +2655,7 @@
   width: 100%;
   border-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 10px 15px -10px #777777;
 }
 .order-content__view-list__table__head {
   background-color: #BEAD8E;
@@ -2676,6 +2677,38 @@
 }
 @media only screen and (min-width: 1000px) {
   .order-content {
+    width: 70%;
+  }
+}
+
+.create-order-content__form__input-group {
+  display: flex;
+  flex-direction: column;
+}
+.create-order-content__form__input-group__input {
+  height: 4em;
+  padding-left: 2em;
+  margin-bottom: 1em;
+  width: 50%;
+}
+.create-order-content__form__input-group__label {
+  font-size: 0.875rem;
+  line-height: 2rem;
+  font-weight: 700;
+  color: #222222;
+}
+.create-order-content__form__error {
+  margin-top: 0.5em;
+}
+
+.create-order-content {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 2em;
+  margin-bottom: 4em;
+}
+@media only screen and (min-width: 1000px) {
+  .create-order-content {
     width: 70%;
   }
 }
