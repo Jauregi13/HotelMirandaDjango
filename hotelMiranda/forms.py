@@ -80,7 +80,7 @@ class OrderForm(forms.ModelForm):
         super(OrderForm, self).__init__(*args, **kwargs)
         room_ids = Booking.objects.filter(email=user.email).values_list('room_id').distinct()
         self.fields['room'].queryset = Room.objects.filter(id__in=room_ids)
-
+        
     class Meta:
         model = Order
         fields = ['room','order_type', 'description']

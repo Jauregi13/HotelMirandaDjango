@@ -1,13 +1,15 @@
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
 from hotelMiranda.models import Order
 from hotelMiranda.forms import OrderForm
 
-class OrderListView(LoginRequiredMixin,ListView):
+class OrderListView(LoginRequiredMixin, ListView):
     model = Order
     template_name= "hotelMiranda/order/orderList.html"
     login_url = '/login/'
+
 
     def get_queryset(self):
 
@@ -21,11 +23,13 @@ class OrderListView(LoginRequiredMixin,ListView):
         return context
 
 
-class CreateOrderView(LoginRequiredMixin,CreateView):
+class CreateOrderView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Order
     form_class = OrderForm
     template_name = "hotelMiranda/order/createOrder.html"
-    login_url = '/login/'
+    login_url = '/login'
+    success_url = '/orders'
+    success_message = 'Order created successfully'
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -38,3 +42,7 @@ class CreateOrderView(LoginRequiredMixin,CreateView):
         context["title_page"] = 'Place an order'
         context["breadcrumb"] = 'Add order'
         return context
+
+    def form_valid(self,form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)

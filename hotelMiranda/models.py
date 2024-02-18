@@ -12,6 +12,10 @@ phone_validator = RegexValidator(
 )
 
 class Room(models.Model):
+
+    def __str__(self):
+        return f"{self.room_type} {self.room_number}"
+
     room_id = models.CharField(max_length=5,unique=True)
     room_type = models.CharField(choices=RoomTypeChoice, max_length=15)
     room_number = models.IntegerField()
