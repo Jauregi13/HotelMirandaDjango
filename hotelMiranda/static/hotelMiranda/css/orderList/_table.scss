@@ -23,8 +23,30 @@
 
         &__body {
 
-            & td {
-                padding: 1em;
+            &__row{
+
+                &__item {
+
+                    padding: 1em;
+
+                    &--center {
+                        text-align: center;
+                    }
+
+                    &__icon {
+
+                        font-size: 1.5rem;
+
+                        &--delete { 
+                            color: $error-color;
+                        }
+                        &--edit {
+                            color: $black-color;
+                        }
+                    }
+                    
+                }
+                
             }
         }
     }

@@ -15,5 +15,6 @@ urlpatterns = [
     path("register/", authenticate.register, name="register"),
     path("logout/", authenticate.logout, name="logout"),
     path("orders/", order.OrderListView.as_view(), name="order"),
-    path("orders/create", order.CreateOrderView.as_view(), name="createOrder")
+    path("orders/create", order.CreateOrderView.as_view(), name="createOrder"),
+    path("orders/<int:id>/edit",order.UpdateOrderView.as_view(), name="editOrder")
 ]

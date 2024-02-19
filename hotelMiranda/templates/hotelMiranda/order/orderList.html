@@ -21,16 +21,24 @@
                     <th>Order type</th>
                     <th>Description</th>
                     <th>Room</th>
-                    <th>Options</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody class="order-content__view-list__table__body">
                 {% for order in object_list %}
-                    <tr>
-                        <td>{{order.order_type}}</td>
-                        <td>{{order.description}}</td>
-                        <td>{{order.room.room_type}} {{order.room.room_number}}</td>
-                        <td></td>
+                    <tr class="order-content__view-list__table__body__row">
+                        <td class="order-content__view-list__table__body__row__item order-content__view-list__table__body__row__item--center">{{order.order_type}}</td>
+                        <td class="order-content__view-list__table__body__row__item">{{order.description}}</td>
+                        <td class="order-content__view-list__table__body__row__item order-content__view-list__table__body__row__item--center">{{order.room.room_type}} {{order.room.room_number}}</td>
+                        <td class="order-content__view-list__table__body__row__item order-content__view-list__table__body__row__item--center">
+                            <a href="#" class="order-content__view-list__table__body__row__item__icon order-content__view-list__table__body__row__item__icon--delete">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                            <a href="{% url 'editOrder' id=order.id %}" class="order-content__view-list__table__body__row__item__icon order-content__view-list__table__body__row__item__icon--edit">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>

@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
 from hotelMiranda.models import Order
-from hotelMiranda.forms import OrderForm
+from hotelMiranda.forms import CreateOrderForm, UpdateOrderForm
 
 class OrderListView(LoginRequiredMixin, ListView):
     model = Order
@@ -25,7 +25,7 @@ class OrderListView(LoginRequiredMixin, ListView):
 
 class CreateOrderView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Order
-    form_class = OrderForm
+    form_class = CreateOrderForm
     template_name = "hotelMiranda/order/createOrder.html"
     login_url = '/login'
     success_url = '/orders'
@@ -46,3 +46,19 @@ class CreateOrderView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     def form_valid(self,form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+class UpdateOrderView(LoginRequiredMixin,SuccessMessageMixin, UpdateView):
+
+    model = Order
+    template_name = 'hotelMiranda/order/updateOrder.html'
+    form_class = UpdateOrderForm
+    pk_url_kwarg = 'id'
+    success_url = '/orders'
+    success_message = 'Order updated successfully'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = 'Update order'
+        context["title_page"] = 'Update an order'
+        context["breadcrumb"] = 'Update order'
+        return context

@@ -74,13 +74,13 @@ class RegisterForm(UserCreationForm):
             "last_name" : forms.TextInput(attrs={'class': 'register-content__form__input-group__input input'}),
         }
 
-class OrderForm(forms.ModelForm):
+class CreateOrderForm(forms.ModelForm):
 
     def __init__(self,user, *args, **kwargs):
-        super(OrderForm, self).__init__(*args, **kwargs)
+        super(CreateOrderForm, self).__init__(*args, **kwargs)
         room_ids = Booking.objects.filter(email=user.email).values_list('room_id').distinct()
         self.fields['room'].queryset = Room.objects.filter(id__in=room_ids)
-        
+
     class Meta:
         model = Order
         fields = ['room','order_type', 'description']
@@ -89,4 +89,16 @@ class OrderForm(forms.ModelForm):
             'room': forms.Select(attrs={'class': 'create-order-content__form__input-group__input input'}),
             'order_type': forms.Select(attrs={'class': 'create-order-content__form__input-group__input input'}),
             'description': forms.Textarea(attrs={'class': 'create-order-content__form__input-group__input input'})
+        }
+
+
+class UpdateOrderForm(forms.ModelForm):
+    
+    class Meta:
+        model = Order
+        fields = ['order_type','description']
+
+        widgets = {
+            'order_type': forms.Select(attrs={'class': 'update-order-content__form__input-group__input input'}),
+            'description': forms.Textarea(attrs={'class': 'update-order-content__form__input-group__input input'})
         }

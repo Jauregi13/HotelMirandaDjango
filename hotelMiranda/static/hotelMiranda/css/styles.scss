@@ -17,6 +17,7 @@
 @use 'register/register';
 @use 'orderList/orderList';
 @use 'createOrder/createOrder';
+@use 'updateOrder/updateOrder';
 @import url('https://fonts.googleapis.com/css2?family=Archivo&family=Old+Standard+TT&family=Roboto');
 
 
@@ -43,6 +44,14 @@ html, * {
 body { 
     min-width: 320px;
     overflow-x: hidden;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
 }
 
 
