@@ -31,7 +31,7 @@
                         <td class="order-content__view-list__table__body__row__item">{{order.description}}</td>
                         <td class="order-content__view-list__table__body__row__item order-content__view-list__table__body__row__item--center">{{order.room.room_type}} {{order.room.room_number}}</td>
                         <td class="order-content__view-list__table__body__row__item order-content__view-list__table__body__row__item--center">
-                            <a href="#" class="order-content__view-list__table__body__row__item__icon order-content__view-list__table__body__row__item__icon--delete">
+                            <a href="{% url 'deleteOrder' id=order.id %}" class="order-content__view-list__table__body__row__item__icon order-content__view-list__table__body__row__item__icon--delete">
                                 <i class="fa-solid fa-trash"></i>
                             </a>
                             <a href="{% url 'editOrder' id=order.id %}" class="order-content__view-list__table__body__row__item__icon order-content__view-list__table__body__row__item__icon--edit">

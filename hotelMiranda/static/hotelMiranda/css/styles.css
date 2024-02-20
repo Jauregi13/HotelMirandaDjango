@@ -383,6 +383,10 @@
 .button--bigger {
   padding-bottom: 3em;
 }
+.button--red {
+  border: 2px solid #DE5777;
+  background-color: #DE5777;
+}
 .button--pagination {
   padding: 1em;
   border: none;
@@ -545,10 +549,14 @@
   font-size: 1rem;
   line-height: 1.13rem;
 }
-.paragraph--bigger {
+.paragraph--medium {
   font-weight: 500;
-  font-size: 1em;
-  line-height: 1em;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+.paragraph--large {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
 }
 
 .input {
@@ -2677,6 +2685,48 @@
 }
 .order-content__view-list__table__body__row__item__icon--edit {
   color: #111111;
+}
+
+.delete-order-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  background-color: rgba(17, 17, 17, 0.5);
+}
+.delete-order-modal--display {
+  display: block;
+}
+.delete-order-modal__content {
+  position: absolute;
+  top: 20%;
+  left: 25%;
+  width: 50%;
+  height: 200px;
+  margin: 0 auto;
+  border-radius: 4em;
+  background-color: #FFFFFF;
+  z-index: 12;
+}
+.delete-order-modal__content__title {
+  background-color: #BEAD8E;
+  border-top-left-radius: 4em;
+  border-top-right-radius: 4em;
+  padding: 1em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  text-align: center;
+  margin-bottom: 2em;
+}
+.delete-order-modal__content__buttons {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  gap: 3em;
+  justify-content: center;
 }
 
 .order-content {

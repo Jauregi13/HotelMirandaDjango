@@ -62,3 +62,11 @@ class UpdateOrderView(LoginRequiredMixin,SuccessMessageMixin, UpdateView):
         context["title_page"] = 'Update an order'
         context["breadcrumb"] = 'Update order'
         return context
+
+
+class DeleteOrderView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
+
+    model = Order
+    pk_url_kwarg = 'id'
+    success_url = '/orders'
+    success_message = 'Order deleted successfully'

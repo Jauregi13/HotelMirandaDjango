@@ -1,4 +1,4 @@
-@use 'variables';
+@import 'variables';
 
 .button {
     background-color: #BDAC8D;
@@ -6,7 +6,7 @@
     color: #FFFFFF;
     height: 3em;
     font-weight: 700;
-    font-family: variables.$font-primary;
+    font-family: $font-primary;
     font-size: 0.875rem;
     line-height: 1rem;
     letter-spacing: 0.175rem;
@@ -25,6 +25,11 @@
 
     &--bigger {
         padding-bottom: 3em;
+    }
+
+    &--red {
+        border: 2px solid $error-color;
+        background-color: $error-color;
     }
 
     &--pagination {
