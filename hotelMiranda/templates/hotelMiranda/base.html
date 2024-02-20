@@ -64,6 +64,9 @@
                             <a class="header__content__menu-login__list__item__link link" href="{% url 'order' %}">View your orders</a>
                         </li>
                         <li class="header__content__menu-login__list__item item">
+                            <a class="header__content__menu-login__list__item__link link" href="{% url 'createOrder' %}">Place an order</a>
+                        </li>
+                        <li class="header__content__menu-login__list__item item">
                             <a class="header__content__menu-login__list__item__link link" href="{% url 'logout' %}">Logout</a>
                         </li>
 
@@ -83,6 +86,24 @@
             </div>
         
         </header>
+
+        <section class="delete-order-modal">
+
+            <div class="delete-order-modal__content">
+
+                <div class="delete-order-modal__content__title">
+                    <p class="paragraph paragraph--white paragraph--bold paragraph--large">Are you sure you want to delete that order?</p>
+                </div>
+                <div class="delete-order-modal__content__buttons">
+                    <a class="delete-order-modal__content__buttons__confirm">
+                        <button class="button button--red">Confirm</button>
+                    </a>
+                    <button class="delete-order-modal__content__buttons__cancel button">Cancel</button>
+                </div>
+
+            </div>
+        
+        </section>
 
          {% if title != 'Home' %}
 

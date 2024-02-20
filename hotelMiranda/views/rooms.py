@@ -34,6 +34,7 @@ def getRoomById(request, id):
                 while Booking.objects.filter(booking_id=booking_id).exists():
                     booking_id = random.randint(10000,99999)
                 booking.booking_id = booking_id
+                
                 booking.save()
                 bookingForm = BookingForm()
                 return render(request,'hotelMiranda/roomDetails.html',

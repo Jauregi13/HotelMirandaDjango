@@ -1,0 +1,53 @@
+
+{% extends 'hotelMiranda/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<main class="order-content">
+
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <section class="order-content__view-list">
+        <table class="order-content__view-list__table">
+            <thead class="order-content__view-list__table__head">
+                <tr>
+                    <th>Order id</th>
+                    <th>Order type</th>
+                    <th>Description</th>
+                    <th>Room</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="order-content__view-list__table__body">
+                {% for order in object_list %}
+                    <tr class="order-content__view-list__table__body__row">
+                        <td class="order-content__view-list__table__body__row__item order-content__view-list__table__body__row__item--center">#{{ order.id }}</td>
+                        <td class="order-content__view-list__table__body__row__item order-content__view-list__table__body__row__item--center">{{order.order_type}}</td>
+                        <td class="order-content__view-list__table__body__row__item">{{order.description}}</td>
+                        <td class="order-content__view-list__table__body__row__item order-content__view-list__table__body__row__item--center">{{order.room.room_type}} {{order.room.room_number}}</td>
+                        <td class="order-content__view-list__table__body__row__item order-content__view-list__table__body__row__item--center">
+                            <a data-order-id="{{order.id}}" class="order-content__view-list__table__body__row__item__icon order-content__view-list__table__body__row__item__icon--delete">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                            <a href="{% url 'editOrder' id=order.id %}" class="order-content__view-list__table__body__row__item__icon order-content__view-list__table__body__row__item__icon--edit">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+</main>
+
+<script defer src="{% static 'hotelMiranda/js/modalDeleteOrder.js' %}"></script>
+{% endblock %}

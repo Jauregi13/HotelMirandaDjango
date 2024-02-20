@@ -68,12 +68,10 @@ $font_secondary: 'Archivo';
             z-index: 10;
 
             & ul li {
-                list-style: none;
                 margin-bottom: 1em;
             }
 
             & ul li a {
-                text-decoration: none;
                 font-weight: 600;
                 color: #111111;
                 font-size: 1rem;
