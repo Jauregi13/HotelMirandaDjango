@@ -2691,7 +2691,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  display: block;
+  display: none;
   width: 100%;
   height: 100%;
   z-index: 11;
@@ -2826,6 +2826,7 @@ li {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -4,6 +4,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
 from hotelMiranda.models import Order
 from hotelMiranda.forms import CreateOrderForm, UpdateOrderForm
+from django.contrib import messages
 
 class OrderListView(LoginRequiredMixin, ListView):
     model = Order
@@ -70,3 +71,7 @@ class DeleteOrderView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     pk_url_kwarg = 'id'
     success_url = '/orders'
     success_message = 'Order deleted successfully'
+
+    def get(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return self.delete(request, *args, **kwargs)
