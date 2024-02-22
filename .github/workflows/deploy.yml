@@ -22,7 +22,7 @@ jobs:
             host: ${{ secrets.HOST }}
             username: ${{ secrets.USERNAME }}
             key: ${{ secrets.KEY }}
-            script: 
+            script: |
                 git pull
                 cd HotelMirandaDjango
                 source env/bin/activate
