@@ -29,7 +29,7 @@ jobs:
                 pip install -r requirements.txt
                 python manage.py makemigrations
                 python manage.py migrate
-                python manage.py collectstatic --no-input
+                sudo python manage.py collectstatic --no-input
                 sudo systemctl restart nginx
                 sudo systemctl restart gunicorn
 
