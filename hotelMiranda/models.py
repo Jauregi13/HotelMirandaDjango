@@ -15,7 +15,7 @@ class Room(models.Model):
 
     def __str__(self):
         return f"{self.room_type} {self.room_number}"
-
+        
     room_id = models.CharField(max_length=5,unique=True)
     room_type = models.CharField(choices=RoomTypeChoice, max_length=15)
     room_number = models.IntegerField()
@@ -25,6 +25,9 @@ class Room(models.Model):
     price = models.IntegerField()
     offer = models.IntegerField(validators=[MaxValueValidator(99),MinValueValidator(0)])
     available = models.BooleanField("Is available?")
+
+    class Meta:
+        db_table = "hotelmiranda_room"
 
 class Booking(models.Model):
     booking_id = models.CharField(max_length=5,unique=True)
@@ -42,6 +45,9 @@ class Booking(models.Model):
     def clean(self):
         if self.check_in > self.check_out:
             raise ValidationError('Check-out must be after check-in')
+    
+    class Meta:
+        db_table = "hotelmiranda_booking"
 
 
 class Contact(models.Model):
@@ -54,7 +60,10 @@ class Contact(models.Model):
     phone = models.CharField(max_length=11, validators=[phone_validator])
     subject = models.CharField(max_length=50)
     comment = models.CharField(max_length=1024)
-    published = models.BooleanField("Is published?", default=True) 
+    published = models.BooleanField("Is published?", default=True)
+
+    class Meta:
+        db_table = "hotelmiranda_contact"
 
 class Order(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
@@ -63,3 +72,6 @@ class Order(models.Model):
     description = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = "hotelmiranda_order"
