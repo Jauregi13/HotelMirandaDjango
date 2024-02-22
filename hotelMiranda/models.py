@@ -26,8 +26,6 @@ class Room(models.Model):
     offer = models.IntegerField(validators=[MaxValueValidator(99),MinValueValidator(0)])
     available = models.BooleanField("Is available?")
 
-    class Meta:
-        db_table = "hotelmiranda_room"
 
 class Booking(models.Model):
     booking_id = models.CharField(max_length=5,unique=True)
@@ -45,9 +43,6 @@ class Booking(models.Model):
     def clean(self):
         if self.check_in > self.check_out:
             raise ValidationError('Check-out must be after check-in')
-    
-    class Meta:
-        db_table = "hotelmiranda_booking"
 
 
 class Contact(models.Model):
@@ -62,8 +57,6 @@ class Contact(models.Model):
     comment = models.CharField(max_length=1024)
     published = models.BooleanField("Is published?", default=True)
 
-    class Meta:
-        db_table = "hotelmiranda_contact"
 
 class Order(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
@@ -72,6 +65,3 @@ class Order(models.Model):
     description = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        db_table = "hotelmiranda_order"
