@@ -26,6 +26,7 @@ class Room(models.Model):
     offer = models.IntegerField(validators=[MaxValueValidator(99),MinValueValidator(0)])
     available = models.BooleanField("Is available?")
 
+
 class Booking(models.Model):
     booking_id = models.CharField(max_length=5,unique=True)
     guest = models.CharField(max_length=30)
