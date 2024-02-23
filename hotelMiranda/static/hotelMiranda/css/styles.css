@@ -71,10 +71,18 @@
   width: 30%;
   justify-content: space-evenly;
 }
+.header__content__icons__icon__cross-icon {
+  font-size: 1.5rem;
+  color: #111111;
+}
 .header__content__menu-login {
+  display: none;
   position: absolute;
   top: 0;
   right: 0;
+}
+.header__content__menu-login--display {
+  display: block;
 }
 .header__content__menu-login__list {
   display: block;
