@@ -86,9 +86,8 @@ $font_secondary: 'Archivo';
 
             &__icon {
 
-                &__cross-icon {
-                    font-size: 1.5rem;
-                    color: #111111;
+                & .fa-xl--remove-line-height {
+                    line-height: unset;
                 }
             }
 
@@ -188,6 +187,7 @@ $font_secondary: 'Archivo';
                 justify-content: flex-end;
 
                 &__icon {
+                    cursor: pointer;
                     margin-left: 1em;
                     padding: 0.6em;
                     border: 2px solid rgba($color: #858585, $alpha: 0.3);
@@ -200,7 +200,7 @@ $font_secondary: 'Archivo';
                 position: absolute;
                 top: 6em;
                 right: 0;
-                width: calc(6.8em + 7%);
+                width: calc(6.5em + 7%);
 
                 &__list {
                     display: flex;

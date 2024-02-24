@@ -1,16 +1,14 @@
 
-const buttonLogin = document.getElementById('login')
-const icon = buttonLogin.firstElementChild
+const loginButton = document.getElementById('login')
+const loginIcon = loginButton.firstElementChild
 const menuLogin = document.querySelector('.header__content__menu-login')
-
+const crossIcon = document.createElement('i')
+crossIcon.classList.add(...['fa-solid', 'fa-xmark', 'fa-xl', 'fa-xl--remove-line-height'])
 
 const openMenuLogin = () => {
 
-    buttonLogin.removeChild(icon)
-
-    const crossIcon = document.createElement('i')
-    buttonLogin.appendChild(crossIcon)
-    buttonLogin.firstElementChild.classList.add(...['fa-solid', 'fa-xmark', 'header__content__icons__icon__cross-icon'])
+    loginButton.removeChild(loginIcon)
+    loginButton.appendChild(crossIcon)
     menuLogin.classList.add('header__content__menu-login--display')
 
 
@@ -18,11 +16,24 @@ const openMenuLogin = () => {
 
 const closeMenuLogin = () => {
 
-
+    loginButton.removeChild(crossIcon)
+    loginButton.appendChild(loginIcon)
+    menuLogin.classList.remove('header__content__menu-login--display')
 }
 
 
 
-buttonLogin.addEventListener('click', () => {
-    openMenuLogin()
+loginButton.addEventListener('click', () => {
+
+    console.log(loginButton.firstElementChild.className);
+    if(loginButton.firstElementChild.className === 'header__content__icons__icon__login'){
+        openMenuLogin()
+    }
+    else {
+        console.log('close');
+        closeMenuLogin()
+    }
+    
 })
+
+
