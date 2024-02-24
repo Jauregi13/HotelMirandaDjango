@@ -71,10 +71,17 @@
   width: 30%;
   justify-content: space-evenly;
 }
+.header__content__icons__icon .fa-xl--remove-line-height {
+  line-height: unset;
+}
 .header__content__menu-login {
+  display: none;
   position: absolute;
   top: 0;
   right: 0;
+}
+.header__content__menu-login--display {
+  display: block;
 }
 .header__content__menu-login__list {
   display: block;
@@ -138,6 +145,7 @@
     justify-content: flex-end;
   }
   .header__content__icons__icon {
+    cursor: pointer;
     margin-left: 1em;
     padding: 0.6em;
     border: 2px solid rgba(133, 133, 133, 0.3);
@@ -147,7 +155,7 @@
     position: absolute;
     top: 6em;
     right: 0;
-    width: calc(6.8em + 7%);
+    width: calc(6.5em + 7%);
   }
   .header__content__menu-login__list {
     display: flex;

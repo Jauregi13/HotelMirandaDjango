@@ -84,11 +84,23 @@ $font_secondary: 'Archivo';
             width: 30%;
             justify-content: space-evenly;
 
+            &__icon {
+
+                & .fa-xl--remove-line-height {
+                    line-height: unset;
+                }
+            }
+
         }
         &__menu-login {
+            display: none;
             position: absolute;
             top: 0;
             right: 0;
+
+            &--display {
+                display: block;
+            }
 
             &__list {
                 display: block;
@@ -175,6 +187,7 @@ $font_secondary: 'Archivo';
                 justify-content: flex-end;
 
                 &__icon {
+                    cursor: pointer;
                     margin-left: 1em;
                     padding: 0.6em;
                     border: 2px solid rgba($color: #858585, $alpha: 0.3);
@@ -187,7 +200,7 @@ $font_secondary: 'Archivo';
                 position: absolute;
                 top: 6em;
                 right: 0;
-                width: calc(6.8em + 7%);
+                width: calc(6.5em + 7%);
 
                 &__list {
                     display: flex;

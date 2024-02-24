@@ -10,6 +10,7 @@
         <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script defer src="{% static 'hotelMiranda/js/sliders.js' %}"></script>
         <script defer src="{% static 'hotelMiranda/js/menu.js' %}"></script>
+        <script defer src="{% static 'hotelMiranda/js/menuLogin.js' %}"></script>
         <script defer src="{% static 'hotelMiranda/js/pagination.js' %}"></script>
         <script defer src="{% static 'hotelMiranda/js/paginationRooms.js' %}"></script>
         <title>{{ title }}</title>
@@ -42,10 +43,8 @@
                         
                 {% endif %}
                 <div class="header__content__icons">
-                    <div class="header__content__icons__icon">
-                        <a href="{% url 'login' %}">
-                            <img src="{% static 'hotelMiranda/img/accountIcon.svg' %}" alt="account"/>
-                        </a>
+                    <div class="header__content__icons__icon" id="login">
+                        <img src="{% static 'hotelMiranda/img/accountIcon.svg' %}" class="header__content__icons__icon__login" alt="account"/>
                     </div>
                     <div class="header__content__icons__icon">
                         <img src="{% static 'hotelMiranda/img/searchIcon.svg' %}" />
