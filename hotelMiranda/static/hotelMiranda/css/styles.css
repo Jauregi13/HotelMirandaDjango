@@ -2737,6 +2737,29 @@
   justify-content: center;
 }
 
+.order-content__confirm-message {
+  position: absolute;
+  left: 30%;
+  top: 10em;
+  background-color: #BEAD8E;
+  width: 40%;
+  text-align: center;
+  padding: 1em;
+  border-radius: 10px;
+  animation: fadeOut ease 1s;
+  animation-delay: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
 .order-content {
   width: 90%;
   margin: 0 auto;

@@ -1,9 +1,10 @@
 
 @use './table';
 @use './deleteOrder';
+@use './_confirmMessage';
 
 .order-content {
-
+    
     width: 90%;
     margin: 0 auto;
     padding-top: 2em;
