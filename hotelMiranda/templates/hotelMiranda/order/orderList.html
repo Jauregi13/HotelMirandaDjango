@@ -9,9 +9,11 @@
 <main class="order-content">
 
     {% if messages %}
+    <section class="order-content__confirm-message">  
         {% for message in messages %}
-            <p>{{ message }}</p>
+            <p class="order-content__confirm-message__text paragraph paragraph--white paragraph--large">{{ message }}</p>
         {% endfor %}
+    </section>
     {% endif %}
 
     <section class="order-content__view-list">
