@@ -2673,7 +2673,7 @@
   width: 100%;
   border-radius: 20px;
   box-shadow: 0 10px 15px -10px #777777;
-  overflow-x: auto;
+  overflow: hidden;
 }
 .order-content__view-list__table__head {
   background-color: #BEAD8E;
