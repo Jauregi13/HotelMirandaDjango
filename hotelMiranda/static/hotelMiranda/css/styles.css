@@ -2739,16 +2739,23 @@
 
 .order-content__confirm-message {
   position: absolute;
-  left: 30%;
-  top: 10em;
+  left: 15%;
+  top: 12em;
   background-color: #BEAD8E;
-  width: 40%;
+  width: 70%;
   text-align: center;
   padding: 1em;
   border-radius: 10px;
   animation: fadeOut ease 1s;
   animation-delay: 1.5s;
   animation-fill-mode: forwards;
+}
+@media only screen and (min-width: 1000px) {
+  .order-content__confirm-message {
+    left: 30%;
+    top: 10em;
+    width: 40%;
+  }
 }
 
 @keyframes fadeOut {
