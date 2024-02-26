@@ -2668,6 +2668,7 @@
 .order-content__view-list {
   overflow-x: auto;
   padding-bottom: 2em;
+  white-space: nowrap;
 }
 .order-content__view-list__table {
   width: 100%;
