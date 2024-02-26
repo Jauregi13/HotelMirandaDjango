@@ -6,14 +6,14 @@
 .order-content__confirm-message {
 
     position: absolute;
-    left: 15%;
+    left: 10%;
     top: 12em;
     background-color: $primary-color;
-    width: 70%;
+    width: 80%;
     text-align: center;
     padding: 1em;
     border-radius: 10px;
-    animation: fadeOut ease 1s;
+    //animation: fadeOut ease 1s;
     animation-delay: 1.5s;
     animation-fill-mode: forwards;
 
