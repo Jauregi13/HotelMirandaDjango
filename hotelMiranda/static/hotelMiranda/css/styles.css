@@ -2665,11 +2665,15 @@
   }
 }
 
+.order-content__view-list {
+  overflow-x: auto;
+  padding-bottom: 2em;
+}
 .order-content__view-list__table {
   width: 100%;
   border-radius: 20px;
-  overflow: hidden;
   box-shadow: 0 10px 15px -10px #777777;
+  overflow-x: auto;
 }
 .order-content__view-list__table__head {
   background-color: #BEAD8E;
