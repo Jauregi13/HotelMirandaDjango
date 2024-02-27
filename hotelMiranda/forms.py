@@ -1,4 +1,5 @@
 from django import forms
+from datetime import date
 from django.core.validators import RegexValidator
 from hotelMiranda.models import Contact, Booking, Order, Room
 from django.contrib.auth import authenticate
@@ -24,8 +25,8 @@ class BookingForm(forms.ModelForm):
         model = Booking
         fields = ["check_in","check_out","guest","email","phone","special_request"]
         widgets = {
-            "check_in": forms.DateInput(attrs={'class': 'room-details-content__check-availability__form__input input','type':'date'}),
-            "check_out": forms.DateInput(attrs={'class': 'room-details-content__check-availability__form__input input','type':'date'}),
+            "check_in": forms.DateInput(attrs={'class': 'room-details-content__check-availability__form__input input','type':'date', 'min': date.today()}),
+            "check_out": forms.DateInput(attrs={'class': 'room-details-content__check-availability__form__input input','type':'date', 'min': date.today()}),
             "guest": forms.TextInput(attrs={'class': 'room-details-content__check-availability__form__input input'}),
             "email": forms.EmailInput(attrs={'class': 'room-details-content__check-availability__form__input input'}),
             "phone": forms.TextInput(attrs={'class': 'room-details-content__check-availability__form__input input'}),
@@ -39,6 +40,11 @@ class BookingForm(forms.ModelForm):
             "phone": "Phone",
             "special_request": "Message"
         }
+
+class RoomsAvailableForm(forms.Form):
+    
+    check_in = forms.DateField(widget=forms.DateInput(attrs={'type': 'date', 'min': date.today()}), label='Arrival Date')
+    check_out = forms.DateField(widget=forms.DateInput(attrs={'type': 'date', 'min': date.today()}), label='Departure Date')
 
 class LoginForm(forms.Form):
 

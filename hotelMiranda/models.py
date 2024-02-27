@@ -38,7 +38,7 @@ class Booking(models.Model):
     check_out = models.DateTimeField()
     special_request = models.CharField(max_length=255, blank=True)
     room = models.ForeignKey(Room,on_delete=models.CASCADE, related_name='bookings')
-    status = models.CharField(choices=BookingStatusChoice, max_length=11)
+    status = models.CharField(choices=BookingStatusChoice, max_length=11) 
 
     def clean(self):
         if self.check_in > self.check_out:
