@@ -25,22 +25,15 @@
 
     <section class="home-content__booking-calendar">
 
-        <form class="home-content__booking-calendar__form">
+        <form class="home-content__booking-calendar__form" method="get" action="{% url 'roomsAvailable' %}">
 
-            <div class="home-content__booking-calendar__form__input-group">
-                <label for="arrival">Arrival Date</label>
-                <input type="date" name="arrival">
+            {% for field in form %}
+            <div class="home-content__booking-calendar__form__input-group">  
+                <label for="{{field.name}}">{{field.label}}</label>
+                {{ field }}
             </div>
-            
-            <div class="home-content__booking-calendar__form__input-group">
-                <label for="departure">Departure Date</label>
-                <input type="date" name="departure">
-            </div>
-            
-
+            {% endfor %}
             <input type="submit" value="CHECK AVAILABILITY" class="button button--bigger" name="check"/>
-
-
         </form>
     </section>
 

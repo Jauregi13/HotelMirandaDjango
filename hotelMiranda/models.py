@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from hotelMiranda.choices import RoomTypeChoice, BookingStatusChoice, OrderTypeChoice
+from django.db.models import Subquery, OuterRef
 
 phone_validator = RegexValidator(
             regex= r'[6-9][0-9]{2} [0-9]{3} [0-9]{3}',
@@ -26,6 +27,21 @@ class Room(models.Model):
     offer = models.IntegerField(validators=[MaxValueValidator(99),MinValueValidator(0)])
     available = models.BooleanField("Is available?")
 
+    @classmethod
+    def getAvailableRooms(cls,check_in,check_out):
+
+        return cls.objects.annotate(
+            roomsBooked=Subquery(
+                Booking.objects.filter(
+                    room=OuterRef('pk'),
+                    check_in__lte=check_out,
+                    check_out__gte=check_in
+                ).values('id')[:1]
+            )
+        ).filter(roomsBooked=None)
+
+
+
 
 class Booking(models.Model):
     booking_id = models.CharField(max_length=5,unique=True)
@@ -38,7 +54,7 @@ class Booking(models.Model):
     check_out = models.DateTimeField()
     special_request = models.CharField(max_length=255, blank=True)
     room = models.ForeignKey(Room,on_delete=models.CASCADE, related_name='bookings')
-    status = models.CharField(choices=BookingStatusChoice, max_length=11)
+    status = models.CharField(choices=BookingStatusChoice, max_length=11) 
 
     def clean(self):
         if self.check_in > self.check_out:

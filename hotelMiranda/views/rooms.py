@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404
-from django.db.models import F,ExpressionWrapper, fields
+from django.db.models import F,ExpressionWrapper, fields, Q, Count, Subquery, OuterRef
 from ..models import Room, Booking
 import random
 from hotelMiranda.forms import BookingForm
@@ -60,4 +60,10 @@ def getRoomsOffer(request):
     {"rooms": rooms, 'title': title, 'title_page': title_page, 'breadcrumb': title})
 
 def getRoomsAvailable(request):
-    pass
+    
+    check_in = request.GET.get('check_in')
+    check_out = request.GET.get('check_out')
+
+    roomsAvailable = Room.getAvailableRooms(check_in,check_out)
+
+    return render(request, 'hotelMiranda/rooms.html', {'rooms': roomsAvailable})

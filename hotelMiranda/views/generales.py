@@ -1,9 +1,11 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
+from hotelMiranda.forms import RoomsAvailableForm
 
 def renderHome(request):
     title = 'Home'
-    return render(request,'hotelMiranda/home.html', {'title' : title})
+    form = RoomsAvailableForm()
+    return render(request,'hotelMiranda/home.html', {'title' : title, 'form': form})
 
 def redirectHome(request):
     return redirect('home/')
