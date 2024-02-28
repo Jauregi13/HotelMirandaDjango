@@ -16,8 +16,8 @@
 
             <div class="home-content__banner-home__content__buttons">
 
-                <button class="home-content__banner-home__content__buttons__tour button">TAKE A TOUR</button>
-                <button class="home-content__banner-home__content__buttons__learn button button--dark">LEARN MORE</button>
+                <a href="{% url 'home' %}#aboutUs"><button class="home-content__banner-home__content__buttons__tour button">TAKE A TOUR</button></a>
+                <a href="{% url 'aboutUs' %}"><button class="home-content__banner-home__content__buttons__learn button button--dark">LEARN MORE</button></a>
 
             </div>
         </div>
@@ -37,13 +37,13 @@
         </form>
     </section>
 
-    <section class="home-content__about-us">
+    <section class="home-content__about-us" id="aboutUs">
         <div class="home-content__about-us__info">
             <h2 class="home-content__about-us__info__title title-section">ABOUT US</h2>
             <h3 class="home-content__about-us__info__subtitle subtitle-section">Discover Our Underground.</h3>
             <p class="home-content__about-us__info__text paragraph paragraph--gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <button class="home-content__about-us__info__button button">BOOK NOW</button>
+            <a href="{% url 'rooms' %}"><button class="home-content__about-us__info__button button">BOOK NOW</button></a>
         </div>
         
         <div class="home-content__about-us__extra-info">
@@ -140,7 +140,7 @@
             <iframe src="https://www.youtube.com/embed/Bu3Doe45lcU?start=25" class="home-content__video__info__video-player" width="95%" frameborder="0"></iframe>
         </div>
         <div class="home-content__video__button">
-            <button class="button">BOOK NOW</button>
+            <a href="{% url 'rooms' %}"><button class="button">BOOK NOW</button></a>
         </div>
         
     </section>
@@ -303,7 +303,7 @@
         </div>
         
 
-        <div class="home-content__menu__info">
+        <div class="home-content__menu__info" id="restaurantMenu">
             <h2 class="home-content__menu__info__title title-section">MENU</h2>
             <h3 class="home-content__menu__info__subtitle subtitle-section">Our Foods Menu</h3>
             <div class="home-content__menu__info__list">
