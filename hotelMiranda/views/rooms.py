@@ -64,14 +64,6 @@ def getRoomsAvailable(request):
     check_in = request.GET.get('check_in')
     check_out = request.GET.get('check_out')
 
-    roomAvailable = Room.objects.annotate(
-        has_conflict=Subquery(
-            Booking.objects.filter(
-                room=OuterRef('pk'),
-                check_in__lte=check_out,
-                check_out__gte=check_in
-            ).values('id')[:1]
-        )
-    ).filter(has_conflict=None)
+    roomsAvailable = Room.getAvailableRooms(check_in,check_out)
 
-    return render(request, 'hotelMiranda/rooms.html', {'rooms': roomAvailable})
+    return render(request, 'hotelMiranda/rooms.html', {'rooms': roomsAvailable})

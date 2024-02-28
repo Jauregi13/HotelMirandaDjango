@@ -1,5 +1,5 @@
 from django import forms
-from datetime import date
+from datetime import date, timedelta
 from django.core.validators import RegexValidator
 from hotelMiranda.models import Contact, Booking, Order, Room
 from django.contrib.auth import authenticate
@@ -26,7 +26,7 @@ class BookingForm(forms.ModelForm):
         fields = ["check_in","check_out","guest","email","phone","special_request"]
         widgets = {
             "check_in": forms.DateInput(attrs={'class': 'room-details-content__check-availability__form__input input','type':'date', 'min': date.today()}),
-            "check_out": forms.DateInput(attrs={'class': 'room-details-content__check-availability__form__input input','type':'date', 'min': date.today()}),
+            "check_out": forms.DateInput(attrs={'class': 'room-details-content__check-availability__form__input input','type':'date', 'min': date.today() + timedelta(days=1)}),
             "guest": forms.TextInput(attrs={'class': 'room-details-content__check-availability__form__input input'}),
             "email": forms.EmailInput(attrs={'class': 'room-details-content__check-availability__form__input input'}),
             "phone": forms.TextInput(attrs={'class': 'room-details-content__check-availability__form__input input'}),
@@ -44,7 +44,7 @@ class BookingForm(forms.ModelForm):
 class RoomsAvailableForm(forms.Form):
     
     check_in = forms.DateField(widget=forms.DateInput(attrs={'type': 'date', 'min': date.today()}), label='Arrival Date')
-    check_out = forms.DateField(widget=forms.DateInput(attrs={'type': 'date', 'min': date.today()}), label='Departure Date')
+    check_out = forms.DateField(widget=forms.DateInput(attrs={'type': 'date', 'min': date.today() + timedelta(days=1)}), label='Departure Date')
 
 class LoginForm(forms.Form):
 
