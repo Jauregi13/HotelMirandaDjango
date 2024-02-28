@@ -36,15 +36,15 @@
                         <li><a href="{% url 'contact' %}">Contact</a></li>
                     </ul>
                 </nav>
-                {% if user.is_authenticated %}
-                    <div class="header__content__username">
-                        <p class="paragraph paragraph--bold">Hello {{ user.username }}</p>
-                    </div>
-                        
-                {% endif %}
                 <div class="header__content__icons">
                     <div class="header__content__icons__icon" id="login">
                         <img src="{% static 'hotelMiranda/img/accountIcon.svg' %}" class="header__content__icons__icon__login" alt="account"/>
+                        {% if user.is_authenticated %}
+                            <div class="header__content__username">
+                                <p class="paragraph paragraph--bold">Hello {{ user.username }}</p>
+                            </div>
+                                
+                        {% endif %}
                     </div>
                     <div class="header__content__icons__icon">
                         <img src="{% static 'hotelMiranda/img/searchIcon.svg' %}" />

@@ -2,13 +2,9 @@
 const loginButton = document.getElementById('login')
 const loginIcon = loginButton.firstElementChild
 const menuLogin = document.querySelector('.header__content__menu-login')
-const crossIcon = document.createElement('i')
-crossIcon.classList.add(...['fa-solid', 'fa-xmark', 'fa-xl', 'fa-xl--remove-line-height'])
 
 const openMenuLogin = () => {
 
-    loginButton.removeChild(loginIcon)
-    loginButton.appendChild(crossIcon)
     menuLogin.classList.add('header__content__menu-login--display')
 
 
@@ -16,24 +12,22 @@ const openMenuLogin = () => {
 
 const closeMenuLogin = () => {
 
-    loginButton.removeChild(crossIcon)
-    loginButton.appendChild(loginIcon)
     menuLogin.classList.remove('header__content__menu-login--display')
 }
 
 
 
-loginButton.addEventListener('click', () => {
+loginButton.addEventListener('click', (event) => {
 
-    console.log(loginButton.firstElementChild.className);
-    if(loginButton.firstElementChild.className === 'header__content__icons__icon__login'){
-        openMenuLogin()
-    }
-    else {
-        console.log('close');
+    event.stopPropagation()
+    openMenuLogin()
+})
+
+window.addEventListener('click', (event) => {
+    console.log(event.target);
+    if(event.target !== menuLogin || event.target === loginButton){
         closeMenuLogin()
     }
-    
 })
 
 
