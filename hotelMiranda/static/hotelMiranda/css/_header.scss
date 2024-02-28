@@ -81,14 +81,13 @@ $font_secondary: 'Archivo';
 
         &__icons {
             display: flex;
-            width: 30%;
+            width: 45%;
             justify-content: space-evenly;
 
             &__icon {
 
-                & .fa-xl--remove-line-height {
-                    line-height: unset;
-                }
+                display: flex;
+                align-items: center;
             }
 
         }
@@ -120,7 +119,7 @@ $font_secondary: 'Archivo';
 
         background-color: #222222;
         box-shadow: none;
-        position: fixed;
+        position: absolute;
         height: 5em;
 
         &__banner {
@@ -164,11 +163,11 @@ $font_secondary: 'Archivo';
 
             &__nav {
                 display: flex;
+                justify-content: center;
                 position: unset;
                 background-color: transparent;
                 box-shadow: none;
-                margin-left: 4%;
-                padding-left: 4%;
+                padding-left: 1em;
 
                 & ul {
                     display: flex;
@@ -183,7 +182,7 @@ $font_secondary: 'Archivo';
 
             &__icons {
 
-                margin-right: 7%;
+                margin-right: 1em;
                 justify-content: flex-end;
 
                 &__icon {
