@@ -1045,6 +1045,7 @@
 .home-content__menu__info__list__item {
   display: none;
   margin-bottom: 2em;
+  height: 160px;
 }
 @media only screen and (min-width: 1000px) {
   .home-content__menu__info__list__item:hover .home-content__menu__info__list__item__text, .home-content__menu__info__list__item:hover .home-content__menu__info__list__item__arrow {
@@ -1062,14 +1063,14 @@
 }
 .home-content__menu__info__list__item__image {
   width: 40%;
-  height: auto;
 }
-@media only screen and (min-width: 1000px) {
-  .home-content__menu__info__list__item__image {
-    width: 25%;
-  }
+.home-content__menu__info__list__item__image img {
+  height: 160px;
+  width: 100%;
+  object-fit: cover;
 }
 .home-content__menu__info__list__item__text {
+  width: 50%;
   padding-left: 2em;
   padding-top: 1em;
 }
@@ -1082,7 +1083,7 @@
 .home-content__menu__info__list__item__arrow {
   display: none;
   align-items: center;
-  font-size: 1.5rem;
+  width: 10%;
   color: #BEAD8E;
   padding-right: 1em;
 }
