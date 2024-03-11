@@ -91,11 +91,36 @@ $font_secondary: 'Archivo';
             }
 
         }
+
         &__menu-login {
             display: none;
+            background-color: #FFFFFF;
             position: absolute;
-            top: 0;
+            width: calc(6.5em + 12%);
+            top: 3.5em;
             right: 0;
+
+            @media only screen and (min-width:1000px) {
+                top: 6em;
+                width: calc(6.5em + 7%);
+            }
+
+            &__list {
+
+                display: flex;
+                flex-direction: column;
+                padding: 1em;
+
+                &__item {
+                    margin-bottom: 0.5em;
+
+                    @media only screen and (min-width:1000px) {
+                        margin-bottom: 1em;
+                    }
+                }
+            }
+
+            
 
             &--display {
                 display: block;
@@ -190,25 +215,6 @@ $font_secondary: 'Archivo';
                     margin-left: 1em;
                     padding: 0.6em;
                     border: 2px solid rgba($color: #858585, $alpha: 0.3);
-                }
-            }
-
-            &__menu-login {
-
-                background-color: #FFFFFF;
-                position: absolute;
-                top: 6em;
-                right: 0;
-                width: calc(6.5em + 7%);
-
-                &__list {
-                    display: flex;
-                    flex-direction: column;
-                    padding: 1em;
-
-                    &__item {
-                        margin-bottom: 1em;
-                    }
                 }
             }
         }
