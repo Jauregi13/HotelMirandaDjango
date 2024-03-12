@@ -41,8 +41,6 @@ class Room(models.Model):
         ).filter(roomsBooked=None)
 
 
-
-
 class Booking(models.Model):
     booking_id = models.CharField(max_length=5,unique=True)
     guest = models.CharField(max_length=30)

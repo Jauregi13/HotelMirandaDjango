@@ -8,6 +8,14 @@
 
 <div class="contact-content">
 
+    {% if messages %}
+    <section class="contact-content__confirm-message">  
+        {% for message in messages %}
+            <p class="contact-content__confirm-message__text paragraph paragraph--white paragraph--large">{{ message }}</p>
+        {% endfor %}
+    </section>
+    {% endif %}
+
     <section class="contact-content__info">
 
         <div class="contact-content__info__address">
