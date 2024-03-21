@@ -1,10 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.db.models import F,ExpressionWrapper, fields, Q, Count, Subquery, OuterRef
 from ..models import Room, Booking
 import random
 from hotelMiranda.forms import BookingForm
-
+from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 
 def getRooms(request):
 
@@ -13,6 +15,39 @@ def getRooms(request):
     title_page = 'Ultimate Room'
     return render(request, 'hotelMiranda/rooms.html',
     {"rooms": rooms, "title": title, "title_page": title_page, "breadcrumb": title})
+
+class BookingRoom(SuccessMessageMixin, CreateView):
+    model = Room
+    template_name = "hotelMiranda/roomDetails.html"
+    pk_url_kwarg = 'id'
+    form_class = BookingForm
+    context_object_name = 'room'
+
+    def get(self, request, *args, **kwargs):
+
+        room_id = self.kwargs['id']
+        self.room = self.model.objects.get(room_id=room_id)
+        return super().get(request, *args, **kwargs)
+        
+    
+    def get_success_url(self):
+
+        return self.request.get_full_path()
+
+    
+    def get_context_data(self, **kwargs):
+
+        context = super().get_context_data(**kwargs)
+        context["title"] = 'Room Details'
+        context["title_page"] = 'Ultimate Room'
+        context["breadcrumb"] = 'Room Details'
+        context["room"] = self.room
+        return context
+    
+    def form_valid(self, form):
+        pass
+    
+
 
 def getRoomById(request, id):
 
@@ -30,13 +65,19 @@ def getRoomById(request, id):
             if bookingForm.is_valid():
                 booking = bookingForm.save(commit=False)
                 booking.room = room
-                booking_id = random.randint(10000,99999)
-                while Booking.objects.filter(booking_id=booking_id).exists():
+
+                if Room.getAvailableRoom(room.room_id,booking.check_in, booking.check_out):
+                    pass
+                else:
+
                     booking_id = random.randint(10000,99999)
-                booking.booking_id = booking_id
+                    while Booking.objects.filter(booking_id=booking_id).exists():
+                        booking_id = random.randint(10000,99999)
+                    booking.booking_id = booking_id
                 
-                booking.save()
-                bookingForm = BookingForm()
+                    booking.save()
+                    bookingForm = BookingForm()
+
                 return render(request,'hotelMiranda/roomDetails.html',
                 {"room": room, "title": title, "title_page": title_page, "breadcrumb": title, 'bookingForm': bookingForm })
 

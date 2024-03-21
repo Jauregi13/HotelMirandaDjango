@@ -7,6 +7,17 @@
 
 <div class="room-details-content">
 
+    {% if messages %}
+    <section class="order-content__confirm-message">  
+        {% for message in messages %}
+            <p class="order-content__confirm-message__text paragraph paragraph--white paragraph--large">{{ message }}</p>
+            <h2 class="title-content">!Thank you for your request!</h2>
+            <p class="paragraph">We have received it correctly. Someone from our Team will get back to you very soon.</p>
+            <p class="paragraph">The Miranda Hotel</p>
+        {% endfor %}
+    </section>
+    {% endif %}
+
     <section class="room-details-content__hotel-image">
 
         <div class="room-details-content__hotel-image__text">
@@ -24,9 +35,9 @@
     <section class="room-details-content__check-availability">
 
         <h2 class="room-details-content__check-availability__title paragraph paragraph--bold">Check Availability</h2>
-        <form action="{% url 'room' id=room.room_id %}" method="post" class="room-details-content__check-availability__form">
+        <form method="post" class="room-details-content__check-availability__form">
             {% csrf_token %}
-            {% for field in bookingForm %}
+            {% for field in form %}
                 <label class="room-details-content__check-availability__form__label" for="{{field.name}}">{{ field.label }}</label>
                 {{ field }}
                 {% if field.errors %}
