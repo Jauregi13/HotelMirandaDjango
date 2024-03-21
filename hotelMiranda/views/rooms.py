@@ -22,12 +22,14 @@ class BookingRoom(SuccessMessageMixin, CreateView):
     pk_url_kwarg = 'id'
     form_class = BookingForm
     context_object_name = 'room'
+    success_message = '<h2 class="title-content">!Thank you for your request!</h2>'
+    error_message = '<h2 class="title-content">!We are sorry!</h2>'
 
-    def get(self, request, *args, **kwargs):
+    def setup(self, request, *args, **kwargs):
 
+        super().setup(request, *args, **kwargs)
         room_id = self.kwargs['id']
-        self.room = self.model.objects.get(room_id=room_id)
-        return super().get(request, *args, **kwargs)
+        self.room = Room.objects.get(room_id=room_id)
         
     
     def get_success_url(self):
@@ -44,48 +46,27 @@ class BookingRoom(SuccessMessageMixin, CreateView):
         context["room"] = self.room
         return context
     
-    def form_valid(self, form):
-        pass
+    def form_valid(self,form):
+       
+        if not Room.getAvailableRoom(self.room.room_id,form.instance.check_in,form.instance.check_out):
+            
+            return self.form_invalid(form)
+        else:
+
+            booking_id = random.randint(10000,99999)
+            while Booking.objects.filter(booking_id=booking_id).exists():
+                booking_id = random.randint(10000,99999)
+
+            form.instance.booking_id = booking_id
+            form.instance.room = self.room
+
+        return super().form_valid(form)
+
     
+    def form_invalid(self,form):
 
-
-def getRoomById(request, id):
-
-    try:
-
-        room = get_object_or_404(Room,room_id = id)
-        room.final_price = room.price - int(room.price * ((room.offer) / 100))
-        bookingForm = BookingForm()
-        title = 'Room Details'
-        title_page = 'Ultimate Room'
-
-        if request.method == 'POST':
-            bookingForm = BookingForm(request.POST)
-
-            if bookingForm.is_valid():
-                booking = bookingForm.save(commit=False)
-                booking.room = room
-
-                if Room.getAvailableRoom(room.room_id,booking.check_in, booking.check_out):
-                    pass
-                else:
-
-                    booking_id = random.randint(10000,99999)
-                    while Booking.objects.filter(booking_id=booking_id).exists():
-                        booking_id = random.randint(10000,99999)
-                    booking.booking_id = booking_id
-                
-                    booking.save()
-                    bookingForm = BookingForm()
-
-                return render(request,'hotelMiranda/roomDetails.html',
-                {"room": room, "title": title, "title_page": title_page, "breadcrumb": title, 'bookingForm': bookingForm })
-
-        return render(request,'hotelMiranda/roomDetails.html',
-        {"room": room, "title": title, "title_page": title_page, "breadcrumb": title, 'bookingForm': bookingForm })
-    
-    except Room.DoesNotExist:
-        raise Http404('Room does not exist')
+        messages.error(self.request,self.error_message)
+        return super().form_invalid(form)
 
 def getRoomsOffer(request):
 
