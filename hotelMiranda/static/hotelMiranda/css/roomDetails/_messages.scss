@@ -1,0 +1,31 @@
+
+
+@import './../mixinMessages';
+@import './../variables';
+
+.room-details-content__message {
+
+    &--success {
+        @include message($primary-color);
+    }
+
+    &--error {
+        @include message($error-color);
+    }
+
+    top: -17em;
+
+    @media only screen  and (min-width: 1000px){
+        top: -14em;
+    }
+
+    &__title {
+        font-weight: 700;
+        margin-bottom: 0.5em;
+    }
+
+    &__text {
+        margin-bottom: 1em;
+    }
+}
+

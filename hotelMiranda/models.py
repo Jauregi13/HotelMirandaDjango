@@ -4,11 +4,11 @@ from django.utils import timezone
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from hotelMiranda.choices import RoomTypeChoice, BookingStatusChoice, OrderTypeChoice
-from django.db.models import Subquery, OuterRef
+from django.db.models import Subquery, OuterRef, Exists
 
 phone_validator = RegexValidator(
-            regex= r'[6-9][0-9]{2} [0-9]{3} [0-9]{3}',
-            message= 'Invalid phone number, you have to put with this format: 999 999 999',
+            regex= r'[6-9][0-9]{2}[0-9]{3}[0-9]{3}',
+            message= 'Invalid phone number, you have to put with this format: 999999999',
             code= 'invalid_phone_number'
 )
 
@@ -27,6 +27,10 @@ class Room(models.Model):
     offer = models.IntegerField(validators=[MaxValueValidator(99),MinValueValidator(0)])
     available = models.BooleanField("Is available?")
 
+    @property
+    def final_price(self):
+        return self.price - int(self.price * ((self.offer) / 100))
+
     @classmethod
     def getAvailableRooms(cls,check_in,check_out):
 
@@ -39,8 +43,21 @@ class Room(models.Model):
                 ).values('id')[:1]
             )
         ).filter(roomsBooked=None)
+    
+    @classmethod
+    def getAvailableRoom(cls, room_id, check_in, check_out):
+        
+        room_available = cls.objects.filter(room_id=room_id).annotate(
+            roomsBooked=Exists(
+                Booking.objects.filter(
+                    room_id=OuterRef('id'),
+                    check_in__lte=check_out,
+                    check_out__gte=check_in
+                )
+            )
+        ).exclude(roomsBooked=True)
 
-
+        return room_available.exists()
 
 
 class Booking(models.Model):
@@ -48,7 +65,7 @@ class Booking(models.Model):
     guest = models.CharField(max_length=30)
     guest_image = models.CharField(max_length=255, null=True)
     email = models.EmailField(max_length=50, null=True)
-    phone = models.CharField(max_length=11,validators=[phone_validator], null=True)
+    phone = models.CharField(max_length=9,validators=[phone_validator], null=True)
     order_date = models.DateTimeField(auto_now_add=True)
     check_in = models.DateTimeField()
     check_out = models.DateTimeField()
@@ -68,7 +85,7 @@ class Contact(models.Model):
     customer = models.CharField(max_length=30)
     customer_image = models.CharField(max_length=255, null=True)
     email = models.EmailField(max_length=50)
-    phone = models.CharField(max_length=11, validators=[phone_validator])
+    phone = models.CharField(max_length=9, validators=[phone_validator])
     subject = models.CharField(max_length=50)
     comment = models.CharField(max_length=1024)
     published = models.BooleanField("Is published?", default=True)

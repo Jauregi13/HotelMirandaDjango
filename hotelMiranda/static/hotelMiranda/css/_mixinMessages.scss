@@ -1,0 +1,36 @@
+
+@import './variables';
+
+@mixin message($color){
+
+    position: absolute;
+    left: 10%;
+    top: 5em;
+    background-color: $color;
+    width: 80%;
+    text-align: center;
+    padding: 1em;
+    border-radius: 10px;
+    animation: fadeOut ease 2s;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+
+    @media only screen  and (min-width: 1000px){
+        left: 25%;
+        top: 10em;
+        width: 55%;
+    }
+
+    @keyframes fadeOut {
+
+        0% {
+            opacity: 1;
+        }
+    
+        100% {
+            opacity: 0;
+            display: none;
+        }
+        
+    }
+}

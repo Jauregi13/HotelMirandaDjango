@@ -2236,6 +2236,36 @@
     grid-column: 1/3;
   }
 }
+.contact-content__confirm-message {
+  position: absolute;
+  left: 10%;
+  top: 5em;
+  background-color: #BEAD8E;
+  width: 80%;
+  text-align: center;
+  padding: 1em;
+  border-radius: 10px;
+  animation: fadeOut ease 2s;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+}
+@media only screen and (min-width: 1000px) {
+  .contact-content__confirm-message {
+    left: 25%;
+    top: 10em;
+    width: 55%;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
 .contact-content {
   width: 90%;
   margin: 0 auto;
@@ -2597,6 +2627,80 @@
   color: #222222;
 }
 
+.room-details-content__message {
+  top: -17em;
+}
+.room-details-content__message--success {
+  position: absolute;
+  left: 10%;
+  top: 5em;
+  background-color: #BEAD8E;
+  width: 80%;
+  text-align: center;
+  padding: 1em;
+  border-radius: 10px;
+  animation: fadeOut ease 2s;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+}
+@media only screen and (min-width: 1000px) {
+  .room-details-content__message--success {
+    left: 25%;
+    top: 10em;
+    width: 55%;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+.room-details-content__message--error {
+  position: absolute;
+  left: 10%;
+  top: 5em;
+  background-color: #DE5777;
+  width: 80%;
+  text-align: center;
+  padding: 1em;
+  border-radius: 10px;
+  animation: fadeOut ease 2s;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+}
+@media only screen and (min-width: 1000px) {
+  .room-details-content__message--error {
+    left: 25%;
+    top: 10em;
+    width: 55%;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .room-details-content__message {
+    top: -14em;
+  }
+}
+.room-details-content__message__title {
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+.room-details-content__message__text {
+  margin-bottom: 1em;
+}
+
 .room-details-content {
   width: 90%;
   margin: 0 auto;
@@ -2753,24 +2857,23 @@
 .order-content__confirm-message {
   position: absolute;
   left: 10%;
-  top: 12.5em;
+  top: 5em;
   background-color: #BEAD8E;
   width: 80%;
   text-align: center;
   padding: 1em;
   border-radius: 10px;
-  animation: fadeOut ease 1s;
-  animation-delay: 1.5s;
+  animation: fadeOut ease 2s;
+  animation-delay: 4s;
   animation-fill-mode: forwards;
 }
 @media only screen and (min-width: 1000px) {
   .order-content__confirm-message {
-    left: 30%;
+    left: 25%;
     top: 10em;
-    width: 40%;
+    width: 55%;
   }
 }
-
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -2780,6 +2883,7 @@
     display: none;
   }
 }
+
 .order-content {
   width: 90%;
   margin: 0 auto;

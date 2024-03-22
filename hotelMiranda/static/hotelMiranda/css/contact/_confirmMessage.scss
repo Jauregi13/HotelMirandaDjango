@@ -1,11 +1,9 @@
 
-@import './../variables';
 @import './../mixinMessages';
+@import './../variables';
 
-
-.order-content__confirm-message {
+.contact-content__confirm-message {
 
     @include message($primary-color);
+
 }
-
-
