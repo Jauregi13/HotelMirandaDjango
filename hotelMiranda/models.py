@@ -7,8 +7,8 @@ from hotelMiranda.choices import RoomTypeChoice, BookingStatusChoice, OrderTypeC
 from django.db.models import Subquery, OuterRef, Exists
 
 phone_validator = RegexValidator(
-            regex= r'[6-9][0-9]{2} [0-9]{3} [0-9]{3}',
-            message= 'Invalid phone number, you have to put with this format: 999 999 999',
+            regex= r'[6-9][0-9]{2}[0-9]{3}[0-9]{3}',
+            message= 'Invalid phone number, you have to put with this format: 999999999',
             code= 'invalid_phone_number'
 )
 
@@ -65,7 +65,7 @@ class Booking(models.Model):
     guest = models.CharField(max_length=30)
     guest_image = models.CharField(max_length=255, null=True)
     email = models.EmailField(max_length=50, null=True)
-    phone = models.CharField(max_length=11,validators=[phone_validator], null=True)
+    phone = models.CharField(max_length=9,validators=[phone_validator], null=True)
     order_date = models.DateTimeField(auto_now_add=True)
     check_in = models.DateTimeField()
     check_out = models.DateTimeField()
@@ -85,7 +85,7 @@ class Contact(models.Model):
     customer = models.CharField(max_length=30)
     customer_image = models.CharField(max_length=255, null=True)
     email = models.EmailField(max_length=50)
-    phone = models.CharField(max_length=11, validators=[phone_validator])
+    phone = models.CharField(max_length=9, validators=[phone_validator])
     subject = models.CharField(max_length=50)
     comment = models.CharField(max_length=1024)
     published = models.BooleanField("Is published?", default=True)

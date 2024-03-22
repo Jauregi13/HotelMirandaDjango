@@ -1,24 +1,24 @@
 
 @import './variables';
 
-@mixin confirmMessage(){
+@mixin message($color){
 
     position: absolute;
     left: 10%;
-    top: 12.5em;
-    background-color: $primary-color;
+    top: 5em;
+    background-color: $color;
     width: 80%;
     text-align: center;
     padding: 1em;
     border-radius: 10px;
-    animation: fadeOut ease 1s;
-    animation-delay: 1.5s;
+    animation: fadeOut ease 2s;
+    animation-delay: 4s;
     animation-fill-mode: forwards;
 
     @media only screen  and (min-width: 1000px){
-        left: 30%;
+        left: 25%;
         top: 10em;
-        width: 40%;
+        width: 55%;
     }
 
     @keyframes fadeOut {

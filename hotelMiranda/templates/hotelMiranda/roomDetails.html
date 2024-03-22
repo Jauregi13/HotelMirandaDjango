@@ -5,18 +5,24 @@
 {% block content %}
 
 
-<div class="room-details-content">
+<main class="room-details-content">
 
-    {% if messages %}
-    <section class="order-content__confirm-message">  
-        {% for message in messages %}
-            <p class="order-content__confirm-message__text paragraph paragraph--white paragraph--large">{{ message }}</p>
-            <h2 class="title-content">!Thank you for your request!</h2>
-            <p class="paragraph">We have received it correctly. Someone from our Team will get back to you very soon.</p>
-            <p class="paragraph">The Miranda Hotel</p>
-        {% endfor %}
-    </section>
-    {% endif %}
+    {% for message in messages %}
+        {% if message.tags == 'success' %}
+        <section class="room-details-content__message room-details-content__message--success">  
+            <h2 class="room-details-content__message__title title-content title-content--white">!Thank you for your request!</h2>
+            <p class="room-details-content__message__text paragraph paragraph--white paragraph--large">{{ message }}</p>
+            <p class="paragraph paragraph--white paragraph--large">The Miranda Hotel</p>
+        </section>
+        {% else %}
+        <section class="room-details-content__message room-details-content__message--error">  
+            <h2 class="room-details-content__message__title title-content title-content--white">!We are sorry!</h2>
+            <p class="room-details-content__message__text paragraph paragraph--white paragraph--large">{{ message }}</p>
+            <p class="paragraph paragraph--white paragraph--large">The Miranda Hotel</p>
+        </section>
+        {% endif %}
+
+    {% endfor %}
 
     <section class="room-details-content__hotel-image">
 
@@ -54,19 +60,8 @@
             <p class="paragraph paragraph--error">{{ error }}</p>
         {% endfor %}
 
-        {% if request.method == 'POST' and not bookingForm.errors %}
-            <h2 class="title-content">!Thank you for your request!</h2>
-            <p class="paragraph">We have received it correctly. Someone from our Team will get back to you very soon.</p>
-            <p class="paragraph">The Miranda Hotel</p>
-        {% endif %}
     </section>
-
-        <div class="room-details-content__image-check-availability__form-content">
-            
-        </div>
         
-    </section>
-
     <section class="room-details-content__info">
 
         <p class="room-details-content__info__text paragraph paragraph--gray">
@@ -262,7 +257,7 @@
         </div>   
 
     </section>
-</div>
+</main>
 
 
 

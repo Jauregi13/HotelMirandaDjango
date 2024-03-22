@@ -22,8 +22,8 @@ class BookingRoom(SuccessMessageMixin, CreateView):
     pk_url_kwarg = 'id'
     form_class = BookingForm
     context_object_name = 'room'
-    success_message = '<h2 class="title-content">!Thank you for your request!</h2>'
-    error_message = '<h2 class="title-content">!We are sorry!</h2>'
+    success_message = 'We have received it correctly. Someone from our Team will get back to you very soon.'
+    error_message = 'This room is not available for the dates you need. Please try different dates or try a different room.'
 
     def setup(self, request, *args, **kwargs):
 
@@ -59,7 +59,7 @@ class BookingRoom(SuccessMessageMixin, CreateView):
 
             form.instance.booking_id = booking_id
             form.instance.room = self.room
-
+            messages.success(self.request, self.success_message)
         return super().form_valid(form)
 
     
