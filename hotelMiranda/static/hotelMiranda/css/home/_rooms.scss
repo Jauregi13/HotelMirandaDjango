@@ -25,7 +25,7 @@
         z-index: 2;
 
         @media only screen and (min-width: 1000px){
-            width: 22%;
+            width: 28%;
         }
 
         & i {
@@ -33,61 +33,86 @@
         }
     }
 
-    &__room-info {
-        margin: 0 auto;
-        text-align: center;
-        background-color: #FFFFFF;
-        width: 80%;
-        padding-top: 1.5em;
-        position: relative;
-        bottom: 2em;
-        z-index: 2;
-
-        @media only screen and (min-width: 1000px){
-            display: flex;
-            text-align: start;
-            width: 40%;
-            padding-left: 2em;
-            padding-right: 1em;
-        }
-
-        &__text {
-
-            &__title {
-                margin-bottom: 0.5em;
-            }        
-    
-            &__paragraph{
-                width: 80%;
-                margin: auto;
-                margin-bottom: 1em;
-
-                @media only screen and (min-width: 1000px){
-                    width: 100%;
-                    margin: 0;
-                }
-            }
-        }
-
-        &__price {
-
-            & span {
-                font-size: 0.813rem;
-            }
-        }
-    }
-
     & .swiper.slider-type1 .swiper-slide {
 
-        height: 30em;
+        @media only screen and (min-width: 1000px){
+            &:not(.swiper-slide-next){
+                opacity: 0.3;
+            }
+        }
 
         &__image {
             
             width: 100%;
-            height: auto;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        &__room-info {
+            margin: 0 auto;
+            text-align: center;
+            background-color: #FFFFFF;
+            width: 80%;
+            padding-top: 1.5em;
+            position: relative;
+            bottom: 2em;
+            z-index: 2;
+    
+            @media only screen and (min-width: 1000px){
+                display: flex;
+                text-align: start;
+                width: 95%;
+                padding-left: 2em;
+                padding-right: 1em;
+            }
+    
+            &__text {
+    
+                &__title {
+                    margin-bottom: 0.5em;
+                }        
+        
+                &__paragraph{
+                    width: 80%;
+                    margin: auto;
+                    margin-bottom: 1em;
+    
+                    @media only screen and (min-width: 1000px){
+                        width: 100%;
+                        margin: 0;
+                    }
+                }
+            }
+    
+            &__price {
+    
+                & span {
+                    font-size: 0.813rem;
+                }
+            }
+        }
+
+    }
+
+    & .swiper.slider-type1 {
+
+        & .swiper-button-prev.swiper-button-prev--move-left {
+
+            top: 35%;
 
             @media only screen and (min-width: 1000px){
-                width: 30em;
+                
+                left: var(--swiper-navigation-sides-offset,25em);
+            }
+        }
+
+        & .swiper-button-next.swiper-button-next--move-right {
+
+            top: 35%;
+
+            @media only screen and (min-width: 1000px){
+                
+                right: var(--swiper-navigation-sides-offset,25em);
             }
         }
     }
