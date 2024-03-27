@@ -14,9 +14,8 @@ const sliderNavigation = new Swiper('.slider-type1', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
-  autoHeight: true,
   slidesPerView: slidesNumber,
-  spaceBetween: 100,
+  spaceBetween: 30,
   // Navigation arrows
   navigation: {
     nextEl: '.swiper-button-next',

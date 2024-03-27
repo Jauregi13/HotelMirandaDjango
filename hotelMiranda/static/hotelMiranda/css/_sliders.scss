@@ -3,11 +3,6 @@
 
     .swiper.slider-type1 {
         width: 100%;
-        height: 16em;
-
-        @media only screen and (min-width: 1000px){
-            height: 20em;
-        }
 
         &--height-auto {
             height: auto;
@@ -26,7 +21,7 @@
                         & .swiper-button-prev.swiper-button-prev--move-left {
         
                             left: var(--swiper-navigation-sides-offset,-8px);
-                             
+
                         }
         
                         & .swiper-button-next.swiper-button-next--move-right {
@@ -77,22 +72,7 @@
         background-color: #BDAC8D;
     }
 
-    @media only screen and (min-width: 1000px){
-
-        .swiper-button-prev.swiper-button-prev--move-left {
-        
-            left: var(--swiper-navigation-sides-offset,10em);
-             
-        }
-    
-        .swiper-button-next.swiper-button-next--move-right {
-    
-            right: var(--swiper-navigation-sides-offset,10em);
-             
-        }
-    }
-
-    
+  
 }
 
 
