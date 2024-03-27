@@ -1213,8 +1213,19 @@
     margin: 0;
   }
 }
+@media only screen and (min-width: 1000px) {
+  .home-content__rooms .swiper.slider-type1 .swiper-slide__room-info__price {
+    display: flex;
+    align-items: center;
+  }
+}
 .home-content__rooms .swiper.slider-type1 .swiper-slide__room-info__price span {
   font-size: 0.813rem;
+}
+@media only screen and (min-width: 1000px) {
+  .home-content__rooms .swiper.slider-type1 .swiper-slide__room-info__price span {
+    margin-top: 0.7em;
+  }
 }
 .home-content__rooms .swiper.slider-type1 .swiper-button-prev.swiper-button-prev--move-left {
   top: 35%;
