@@ -85,7 +85,10 @@ def getRoomsAvailable(request):
     
     check_in = request.GET.get('check_in')
     check_out = request.GET.get('check_out')
+    title = 'Rooms'
+    title_page = 'Ultimate Room'
 
     roomsAvailable = Room.getAvailableRooms(check_in,check_out)
 
-    return render(request, 'hotelMiranda/rooms.html', {'rooms': roomsAvailable})
+    return render(request, 'hotelMiranda/rooms.html', 
+    {'rooms': roomsAvailable, 'title': title, 'title_page': title_page, 'breadcrumb': title})
